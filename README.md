@@ -13,6 +13,7 @@ Time permitting, we might even try generating images or audio. This lab is an op
 Attendees can also share feedback with the maintainers of these projects and engage with the community.
 
 **Lab Instructor**
+
 * Daniel Oh / Java Champion | STSM | Senior Principal Developer Advocate Red Hat & IBM
 * Don Bourne / STSM - Application Runtimes AI & Technology Incubation Architect, IBM
 
