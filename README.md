@@ -14,8 +14,8 @@ Attendees can also share feedback with the maintainers of these projects and eng
 
 **Lab Instructor**
 
-* Daniel Oh / Java Champion, Senior Principal Developer Advocate Red Hat & IBM
-* Don Bourne / STSM - Application Runtimes AI & Technology Incubation Architect, IBM
+* Daniel Oh - Java Champion & Senior Principal Developer Advocate / Red Hat & IBM
+* Don Bourne - STSM / Application Runtimes AI & Technology Incubation Architect, IBM
 
 The workshop is divided into several steps. You can follow the instructions
 available in the [workshop
