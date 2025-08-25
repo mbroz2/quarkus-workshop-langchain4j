@@ -2,7 +2,7 @@
 
 # Lab 2640: Create your own AI infused Java apps with Quarkus and LangChain4j
 
-Tuesday, Oct 7th | 04:15 pm - 05:45 pm EDT
+## Tuesday, Oct 7th | 04:15 pm - 05:45 pm EDT
 
 Generative AI has gained significant attention over the past year, and many executive leaders are pushing Java developers to integrate AI into their applications. 
 Does this mean we have to abandon what we've built and become data scientists? Not at all. 
@@ -26,7 +26,7 @@ Alternatively, you may serve the instructions locally by following the [docs/REA
 
 # Lab 2641: Think Agentic AI is only for Python? Think again. Java’s in the game
 
-Wednesday, Oct 8th | 02:00 pm - 03:30 pm EDT
+## Wednesday, Oct 8th | 02:00 pm - 03:30 pm EDT
 
 Are you ready to revolutionize your Java application with the latest AI trend? Let's dive into the world of AI Agents and discover how they can unleash new capabilities! 
 We'll start by showing you how to create and deploy AI Agents in a snap, and put them to work on various tasks. 
