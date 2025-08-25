@@ -1,4 +1,4 @@
-![Lab 2640](./docs/docs/images/2640.png)
+![Lab 2640](./docs/docs/images/ibm-txc-2640.png)
 
 # Lab 2640: Create your own AI infused Java apps with Quarkus and LangChain4j
 
@@ -22,7 +22,7 @@ Attendees can also share feedback with the maintainers of these projects and eng
 The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/docs/docs).
 Alternatively, you may serve the instructions locally by following the [docs/README file](docs/README.md).
 
-![Lab 2641](./docs/docs/images/2641.png)
+![Lab 2641](./docs/docs/images/ibm-txc-2641.png)
 
 # Lab 2641: Think Agentic AI is only for Python? Think again. Java’s in the game
 
