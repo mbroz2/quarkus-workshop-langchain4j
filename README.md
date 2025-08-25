@@ -44,5 +44,3 @@ Are you ready to unleash their potential?
 
 The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/docs/docs). 
 Alternatively, you may serve the instructions locally by following the [docs/README file](docs/README.md).
-
-
