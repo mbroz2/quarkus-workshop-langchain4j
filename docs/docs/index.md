@@ -1,3 +1,5 @@
+# Lab 2640, 2641 - Quarkus AI workshops 
+
 Welcome to the Lab 2640 and 2641 for Java AI Workshop! 
 This workshop is designed to help you get started with AI-Infused applications using Quarkus and LangChain4j.
 You are going to learn about:
