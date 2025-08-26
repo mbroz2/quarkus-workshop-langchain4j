@@ -1,6 +1,6 @@
-# Quarkus LangChain4j Workshop
+# Lab 2640 and 2641 - Quarkus AI workshops at IBM TechXChange 2025
 
-Welcome to the Quarkus LangChain4j Workshop! 
+Welcome to the Lab 2640 and 2641 for Java AI Workshop! 
 This workshop is designed to help you get started with AI-Infused applications using Quarkus and LangChain4j.
 You are going to learn about:
 
@@ -11,7 +11,6 @@ You are going to learn about:
 - How to build simple and advanced RAG (Retrieval-Augmented Generation) patterns
 
 ![Quarkus LangChain4j Workshop](images/global-architecture.png)
-
 
 ## Workshop Structure
 
