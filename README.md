@@ -19,7 +19,7 @@ Attendees can also share feedback with the maintainers of these projects and eng
 * Daniel Oh - Java Champion & Senior Principal Developer Advocate / Red Hat & IBM
 * Don Bourne - STSM / Application Runtimes AI & Technology Incubation Architect, IBM
 
-The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/docs/docs).
+The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/).
 Alternatively, you may serve the instructions locally by following the [docs/README file](docs/README.md).
 
 ![Lab 2641](./docs/docs/images/ibm-txc-2641.png)
@@ -42,6 +42,6 @@ Are you ready to unleash their potential?
 * Alasdair Nottingham - WebSphere Chief Architect, IBM
 * Daniel Oh - Java Champion & Senior Principal Developer Advocate / Red Hat & IBM
 
-The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/docs/docs). 
+The workshop is divided into several steps. You can follow the instructions available in the [workshop website](https://danieloh30.github.io/quarkus-workshop-langchain4j/step-08/). 
 Alternatively, you may serve the instructions locally by following the [docs/README file](docs/README.md).
 
