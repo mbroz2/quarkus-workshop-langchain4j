@@ -4,12 +4,6 @@ env:
   JVM_VERSION: '21'
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 concurrency:
