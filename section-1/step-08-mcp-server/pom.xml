@@ -17,7 +17,7 @@
 
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.26.3</quarkus.platform.version>
+        <quarkus.platform.version>3.26.4</quarkus.platform.version>
 
         <quarkus-langchain4j.version>1.1.4</quarkus-langchain4j.version>
 
@@ -48,11 +48,15 @@
         <dependency>
             <groupId>io.quarkiverse.mcp</groupId>
             <artifactId>quarkus-mcp-server-sse</artifactId>
+<<<<<<< HEAD:section-1/step-08-mcp-server/pom.xml
 <<<<<<< HEAD:step-08-mcp-server/pom.xml
             <version>1.5.0</version>
 =======
             <version>1.5.3</version>
 >>>>>>> agentic_lab_init:section-1/step-08-mcp-server/pom.xml
+=======
+            <version>1.5.3</version>
+>>>>>>> daniel/main:step-08-mcp-server/pom.xml
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
