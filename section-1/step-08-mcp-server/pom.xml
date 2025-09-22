@@ -50,7 +50,7 @@
             <artifactId>quarkus-mcp-server-sse</artifactId>
 <<<<<<< HEAD:section-1/step-08-mcp-server/pom.xml
 <<<<<<< HEAD:step-08-mcp-server/pom.xml
-            <version>1.5.0</version>
+            <version>1.5.3</version>
 =======
             <version>1.5.3</version>
 >>>>>>> agentic_lab_init:section-1/step-08-mcp-server/pom.xml
