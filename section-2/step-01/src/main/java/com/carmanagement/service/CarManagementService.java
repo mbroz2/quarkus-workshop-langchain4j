@@ -28,7 +28,7 @@ public class CarManagementService {
     CarService carService;
 
     @Inject
-    Models models = null;
+    Models models;
 
     @Inject
     CarWashTool carWashTool;
@@ -47,7 +47,6 @@ public class CarManagementService {
                 .agentBuilder(CarWashAgent.class)
                 .chatModel(models.baseModel())
                 .tools(carWashTool)
-                .outputName("carWashAgentResult")
                 .build();
 
         return carWashAgent;

@@ -1,3 +1,4 @@
+// --8<-- [start:part1]
 package com.carmanagement.service;
 
 import com.carmanagement.agentic.agents.CarConditionFeedbackAgent;
@@ -14,7 +15,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.annotation.PostConstruct;
 
-// --8<-- [start:carManagementService]
 /**
  * Service for managing car returns from various operations.
  */
@@ -51,26 +51,25 @@ public class CarManagementService {
                 .agentBuilder(CarWashAgent.class)
                 .chatModel(models.baseModel())
                 .tools(carWashTool)
-                .outputName("carWashAgentResult")
                 .build();
 
         // CarConditionFeedbackAgent
         CarConditionFeedbackAgent carConditionFeedbackAgent = AgenticServices
                 .agentBuilder(CarConditionFeedbackAgent.class)
                 .chatModel(models.baseModel())
-                .outputName("carCondition")
                 .build();
 
         // CarProcessingWorkflow - simple sequence of CarWashAgent and CarConditionFeedbackAgent
         CarProcessingWorkflow carProcessingWorkflow = AgenticServices
                 .sequenceBuilder(CarProcessingWorkflow.class)
                 .subAgents(carWashAgent, carConditionFeedbackAgent)
-                .outputName("carProcessingAgentResult")
                 .build();
 
         return carProcessingWorkflow;
     }
+// --8<-- [end:part1]
 
+// --8<-- [start:part2]
     /**
      * Process a car return from any operation.
      *
@@ -116,7 +115,5 @@ public class CarManagementService {
         boolean required = s != null && !s.isEmpty() && !s.toUpperCase().contains("NOT_REQUIRED");
         return required;
     }
+// --8<-- [end:part2]
 }
-// --8<-- [end:carManagementService]
-
-

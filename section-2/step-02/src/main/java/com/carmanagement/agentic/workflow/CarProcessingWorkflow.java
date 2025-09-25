@@ -4,7 +4,6 @@ import dev.langchain4j.agentic.Agent;
 import dev.langchain4j.agentic.scope.ResultWithAgenticScope;
 import dev.langchain4j.service.V;
 
-// --8<-- [start:carProcessingWorkflow]
 /**
  * Workflow for processing car returns using a sequence of agents.
  */
@@ -13,7 +12,7 @@ public interface CarProcessingWorkflow {
     /**
      * Processes a car return by running feedback analysis and then appropriate actions.
      */
-    @Agent
+    @Agent(outputName="carProcessingAgentResult")
     ResultWithAgenticScope<String> processCarReturn(
             @V("carMake") String carMake,
             @V("carModel") String carModel,
@@ -23,4 +22,3 @@ public interface CarProcessingWorkflow {
             @V("rentalFeedback") String rentalFeedback,
             @V("carWashFeedback") String carWashFeedback);
 }
-// --8<-- [end:carProcessingWorkflow]
