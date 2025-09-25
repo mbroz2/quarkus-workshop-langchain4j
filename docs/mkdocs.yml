@@ -1,11 +1,11 @@
-site_name: Lab 2640, 2641 - Quarkus AI workshops at IBM TechXChange 2025
+site_name: Lab 2640 | 2641 - Quarkus AI workshops at IBM TechXChange 2025
 repo_url: https://github.com/danieloh30/quarkus-workshop-langchain4j
 edit_uri: edit/main/docs/
 docs_dir: docs
 
 nav:
   - Requirements: 'requirements.md'
-  - Section 1 - AI Apps:
+  - Section 1 - Generative AI Apps:
     - Step 1 - Introduction to Quarkus LangChain4j: 'section-1/step-01.md'
     - Step 2 - Playing with model parameters: 'section-1/step-02.md'
     - Step 3 - Streaming responses: 'section-1/step-03.md'
@@ -17,7 +17,7 @@ nav:
     - Step 9 - Guardrails: 'section-1/step-09.md'
     - Step 10 - Observability and Fault Tolerance: 'section-1/step-10.md'
     - Step 11 - Serving the model in pure Java with Jlama: 'section-1/step-11.md'
-  - Section 2 - Agentic Workflows:
+  - Section 2 - Agentic AI Workflows:
     - Step 1 - Implementing AI Agents: 'section-2/step-01.md'
     - Step 2 - Composing simple agent workflows: 'section-2/step-02.md'
     - Step 3 - Building nested agent workflows: 'section-2/step-03.md'
