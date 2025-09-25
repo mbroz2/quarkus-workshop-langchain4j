@@ -4,26 +4,26 @@ edit_uri: edit/main/docs/
 docs_dir: docs
 
 nav:
-  - Requirements: 'requirements.md'
+  # - Requirements: 'requirements.md'
+  - Workshop Environment: 'workshop-environment.md'
   - Section 1 - Generative AI Apps:
-    - Step 1 - Introduction to Quarkus LangChain4j: 'section-1/step-01.md'
-    - Step 2 - Playing with model parameters: 'section-1/step-02.md'
-    - Step 3 - Streaming responses: 'section-1/step-03.md'
-    - Step 4 - Using system messages: 'section-1/step-04.md'
-    - Step 5 - Introduction to the RAG pattern: 'section-1/step-05.md'
-    - Step 6 - Deconstructing the RAG: 'section-1/step-06.md'
-    - Step 7 - Function calling and tools: 'section-1/step-07.md'
-    - Step 8 - Model Context Protocol: 'section-1/step-08.md'
-    - Step 9 - Guardrails: 'section-1/step-09.md'
-    - Step 10 - Observability and Fault Tolerance: 'section-1/step-10.md'
-    - Step 11 - Serving the model in pure Java with Jlama: 'section-1/step-11.md'
+    - 1-1 Introduction to Quarkus LangChain4j: 'section-1/step-01.md'
+    - 1-2 Playing with model parameters: 'section-1/step-02.md'
+    - 1-3 Streaming responses: 'section-1/step-03.md'
+    - 1-4 Using system messages: 'section-1/step-04.md'
+    - 1-5 Introduction to the RAG pattern: 'section-1/step-05.md'
+    - 1-6 Deconstructing the RAG: 'section-1/step-06.md'
+    - 1-7 Function calling and tools: 'section-1/step-07.md'
+    - 1-8 Model Context Protocol: 'section-1/step-08.md'
+    - 1-9 Guardrails: 'section-1/step-09.md'
+    - 1-10 Observability and Fault Tolerance: 'section-1/step-10.md'
+    - 1-11 Serving the model in pure Java with Jlama: 'section-1/step-11.md'
   - Section 2 - Agentic AI Workflows:
-    - Step 1 - Implementing AI Agents: 'section-2/step-01.md'
-    - Step 2 - Composing simple agent workflows: 'section-2/step-02.md'
-    - Step 3 - Building nested agent workflows: 'section-2/step-03.md'
-    - Step 4 - Using remote agents (A2A): 'section-2/step-04.md'
+    - 2-1 Implementing AI Agents: 'section-2/step-01.md'
+    - 2-2 Composing simple agent workflows: 'section-2/step-02.md'
+    - 2-3 Building nested agent workflows: 'section-2/step-03.md'
+    - 2-4 Using remote agents (A2A): 'section-2/step-04.md'
   - Conclusion: 'conclusion.md'
-
 
 theme:
   name: material
