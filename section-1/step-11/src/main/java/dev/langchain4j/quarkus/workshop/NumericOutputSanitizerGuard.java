@@ -5,7 +5,7 @@ import dev.langchain4j.guardrail.OutputGuardrail;
 import dev.langchain4j.guardrail.OutputGuardrailResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.jboss.logging.Logger;
+import org.jboss.logging.Logger; 
 
 @ApplicationScoped
 public class NumericOutputSanitizerGuard implements OutputGuardrail {
