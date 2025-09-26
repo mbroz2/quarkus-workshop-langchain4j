@@ -64,7 +64,7 @@ Copy the `access code` and select `Attend` to open the lab.
 > [! IMPORTANT]
 > If you don't see the access code on the page, the instructor will provide it to you at the beginning of the lab.
 
-![Lab information](./images/tz-lab-2641-info.png)
+![Lab information](./images/tz-lab-2641-info.png) 
 
 Paste the `access code` and select `Validate access code`.
 
