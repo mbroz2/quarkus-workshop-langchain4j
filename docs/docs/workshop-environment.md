@@ -4,7 +4,7 @@
 
 **Note: 2641 lab students should skip this step!!!**
 
-Open a new Chrome browser on your laptop. The homepage will take you to the [IBM TechZone](https://techzone.ibm.com/){target="_blank"} website. From there, log in with your email credential. 
+Open a new Chrome browser on your Windows desktop. The homepage will take you to the [IBM TechZone](https://techzone.ibm.com/){target="_blank"} website. From there, log in with your email credential. 
 
 Go to `My Events`, select `Tuesday`, and enter `Lab 2640` in the search box to open the lab.
 
@@ -16,6 +16,9 @@ Select `Open this lab`. You should now be in the lab information page.
 > You can also access the lab information page directly from the [Lab 2640 website](https://ibm.biz/BdeU6n){target="_blank"}.
 
 Copy the `access code` and select `Attend` to open the lab.
+
+> [! IMPORTANT]
+> If you don't see the access code on the page, the instructor will provide it to you at the beginning of the lab.
 
 ![Lab information](./images/tz-lab-2640-info.png)
 
@@ -45,7 +48,7 @@ A new window will open in which you can access the workspace.
 
 **Note: 2640 lab students should skip this step!!!**
 
-Open a new Chrome browser on your laptop. The homepage will take you to the [IBM TechZone](https://techzone.ibm.com/){target="_blank"} website. From there, log in with your email credential. 
+Open a new Chrome browser on your Windows desktop. The homepage will take you to the [IBM TechZone](https://techzone.ibm.com/){target="_blank"} website. From there, log in with your email credential. 
 
 Go to `My Events`, select `Wednesday`, and enter `Lab 2641` in the search box to open the lab.
 
@@ -57,6 +60,9 @@ Select `Open this lab`. You should now be in the lab information page.
 > You can also access the lab information page directly from the [Lab 2641 website](https://ibm.biz/Bde9pY){target="_blank"}.
 
 Copy the `access code` and select `Attend` to open the lab.
+
+> [! IMPORTANT]
+> If you don't see the access code on the page, the instructor will provide it to you at the beginning of the lab.
 
 ![Lab information](./images/tz-lab-2641-info.png)
 
