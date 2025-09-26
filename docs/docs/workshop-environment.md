@@ -41,7 +41,7 @@ A new window will open in which you can access the workspace.
 
 ![Lab 2640](./images/tz-vm-login.png)
 
-## Attend **2641** Lab (Wednesday, Oct 8th | 04:15 pm - 05:45 pm EDT)
+## Attend **2641** Lab (Wednesday, Oct 8th | 02:00 pm - 03:30 pm EDT)
 
 **Note: 2640 lab students should skip this step!!!**
 
