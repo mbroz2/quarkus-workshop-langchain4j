@@ -11,7 +11,7 @@ import org.eclipse.microprofile.faulttolerance.Timeout;
 import dev.langchain4j.service.SystemMessage;
 import io.quarkiverse.langchain4j.RegisterAiService;
 import io.quarkiverse.langchain4j.ToolBox;
-import dev.langchain4j.guardrail.InputGuardrails;
+import dev.langchain4j.service.guardrail.InputGuardrails;
 
 @SessionScoped
 @RegisterAiService
