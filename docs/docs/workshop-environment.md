@@ -17,9 +17,6 @@ Select `Open this lab`. You should now be in the lab information page.
 
 Copy the `access code` and select `Attend` to open the lab.
 
-> [! IMPORTANT]
-> If you don't see the access code on the page, the instructor will provide it to you at the beginning of the lab.
-
 ![Lab information](./images/tz-lab-2640-info.png)
 
 Paste the `access code` and select `Validate access code`.
@@ -60,9 +57,6 @@ Select `Open this lab`. You should now be in the lab information page.
 > You can also access the lab information page directly from the [Lab 2641 website](https://ibm.biz/Bde9pY){target="_blank"}.
 
 Copy the `access code` and select `Attend` to open the lab.
-
-> [! IMPORTANT]
-> If you don't see the access code on the page, the instructor will provide it to you at the beginning of the lab.
 
 ![Lab information](./images/tz-lab-2641-info.png) 
 
