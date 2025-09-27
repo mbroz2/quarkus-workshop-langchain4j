@@ -137,7 +137,19 @@ code quarkus-workshop-langchain4j
 
 ![Open Project](./images/vscode-open-project.png)
 
-You should see the project opened in your IDE. You can navigate to the `section-1/step-01` directory.
+You should see the project opened in your IDE. You can navigate to the `section-1` or `section-2` directory.
+
+### Export the Open AI API key
+
+Run the following command in the VS Code terminal (`Terminal > Open New Terminal`) to export the Open AI API key.
+
+Note that you should replace `<your-open-ai-api-key>` with your actual Open AI API key that the instructor provided.
+
+```bash
+export OPENAI_API_KEY=<your-open-ai-api-key>
+```
+
+Make sure to run the Quarkus dev mode (`./mvnw quarkus:dev`) in this terminal later that you export the API key.
 
 ### Open the lab instructions
 
