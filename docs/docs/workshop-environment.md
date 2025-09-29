@@ -12,8 +12,8 @@ Go to `My Events`, select `Tuesday`, and enter `Lab 2640` in the search box to o
 
 Select `Open this lab`. You should now be in the lab information page.
 
-> [TIP]
-> You can also access the lab information page directly from the [Lab 2640 website](https://ibm.biz/BdeU6n){target="_blank"}.
+!!! tip
+    You can also access the lab information page directly from the [Lab 2640 website](https://ibm.biz/BdeU6n){target="_blank"}.
 
 Copy the `access code` and select `Attend` to open the lab.
 
@@ -53,8 +53,8 @@ Go to `My Events`, select `Wednesday`, and enter `Lab 2641` in the search box to
 
 Select `Open this lab`. You should now be in the lab information page.
 
-> [TIP]
-> You can also access the lab information page directly from the [Lab 2641 website](https://ibm.biz/Bde9pY){target="_blank"}.
+!!! tip
+    You can also access the lab information page directly from the [Lab 2641 website](https://ibm.biz/Bde9pY){target="_blank"}.
 
 Copy the `access code` and select `Attend` to open the lab.
 
