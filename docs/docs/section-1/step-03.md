@@ -23,9 +23,9 @@ Initially, our AI service looked like this:
 ```
 
 Note that the return type of the `chat` method is `String`.
-==We will change it to `Multi<String>` to indicate that the response will be streamed instead of returned synchronously.==
+We will change it to `Multi<String>` to indicate that the response will be streamed instead of returned synchronously.
 
-```java title="CustomerSupportAgent.java"
+```java hl_lines="11" title="CustomerSupportAgent.java"
 --8<-- "../../section-1/step-03/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgent.java"
 ```
 
@@ -45,7 +45,7 @@ Currently, our websocket endpoint looks like this:
 --8<-- "../../section-1/step-02/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgentWebSocket.java"
 ```
 
-==Let's modify the `onTextMessage` method to send the response to the client as it arrives.==
+Let's modify the `onTextMessage` method to send the response to the client as it arrives.
 
 ```java hl_lines="22-25" title="CustomerSupportAgentWebSocket.java"
 --8<-- "../../section-1/step-03/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgentWebSocket.java"
