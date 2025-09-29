@@ -94,9 +94,9 @@ Create the `dev.langchain4j.quarkus.workshop.BookingRepository` class with the f
 
 The _repository_ defines three methods:
 
-<1> `cancelBooking` to cancel a booking. It checks if the booking can be cancelled and deletes it from the database.
-<2> `listBookingsForCustomer` to list all bookings for a customer.
-<3> `getBookingDetails` to retrieve the details of a booking.
+1. `cancelBooking` to cancel a booking. It checks if the booking can be cancelled and deletes it from the database.
+2. `listBookingsForCustomer` to list all bookings for a customer.
+3. `getBookingDetails` to retrieve the details of a booking.
 
 Each method is annotated with the `@Tool` annotation.
 That is how we tell the LLM that these methods can be called.
@@ -132,8 +132,7 @@ Also note that we have added a new placeholder `{current_date}` in the system pr
 
 ## Testing the function calling
 
-Let's test the function calling.
-==Make sure the application is running (`./mvnw quarkus:dev`).==
+Let's test the function calling. Make sure the application is running (`./mvnw quarkus:dev`).
 
 Open your browser and go to [http://localhost:8080](http://localhost:8080).
 In the chatbot, let's try the following interactions:
@@ -142,31 +141,29 @@ In the chatbot, let's try the following interactions:
 Hello, I would like to cancel a booking.
 ```
 
-**AI**: Sure, I can help with that. I'll need a bit more information to proceed: 1. Your first and last name to look up the booking. 2. The booking ID associated with your reservation. Please provide these details so I can assist you further.
+**AI**: It seems like you've provided some information regarding our policies but haven't included the necessary details about your booking, such as the booking ID and your name. Could you please provide your first name, last name, and the booking ID you'd like to cancel? This will help me assist you further!
 
 ```text title="You"
 My name is Speedy McWheels. But, I don't remember the booking ID. Can you list all my future bookings?
 ```
 
-**AI**: Here are your upcoming bookings: 1. Booking ID: 1 - From: 2025-07-10 - To: 2025-07-12 2. Booking ID: 2 - From: 2025-08-05 - To: 2025-08-12 3. Booking ID: 3 - From: 2025-10-01 - To: 2025-10-07 Please let me know which booking you would like to cancel.
+**AI**: Here are your upcoming bookings: 1. **Booking ID:** 3 **Location:** Antwerp, Belgium **From:** 2025-10-20 **To:** 2025-10-26 2. **Booking ID:** 2 **Location:** Sao Paulo, Brazil **From:** 2025-11-17 **To:** 2025-11-19 3. **Booking ID:** 1 **Location:** Verbier, Switzerland **From:** 2025-12-13 **To:** 2025-12-25 Please let me know which booking you'd like to cancel!
 
 ```text title="You"
 I would like to cancel the last one.
 ```
 
-**AI**: Your booking from 2025-10-01 to 2025-10-07 has been successfully cancelled. If you need any further assistance, feel free to let me know!
-
-Here are your current bookings: 1. Booking ID: 1 - From: 2025-07-10 - To: 2025-07-12 2. Booking ID: 2 - From: 2025-08-05 - To: 2025-08-12 If you need any further assistance, please let me know!
+**AI**: Your booking to Verbier, Switzerland has been successfully canceled! If you need any further assistance, feel free to ask.
 
 Alright, let's try now to cancel an invalid booking:
 
 ```text title="You"
-Can you cancel my booking starting on 2025-07-10?
+Can you cancel my booking starting on 2025-12-13?
 ```
 
-**AI**:  Unfortunately, I cannot cancel your booking starting on 2025-07-10 because the booking period is less than 4 days, and cancellations are not permitted for such bookings. If you have any other questions or need further assistance, please let me know!
+**AI**:  According to our cancellation policy, you can cancel a reservation only up to 11 days prior to the start of the booking period. Since your booking starting on 2025-12-13 is more than 11 days away, you will not be able to cancel it at this time. If you have any other requests or questions, feel free to ask!
 
-![type:video](../images/chat-booking.mp4){: style='width: 80%'}
+<!-- ![type:video](../images/chat-booking.mp4){: style='width: 80%'} -->
 
 ## Conclusion
 
