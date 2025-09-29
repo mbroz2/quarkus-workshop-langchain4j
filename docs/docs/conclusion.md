@@ -5,7 +5,7 @@ Alright, this is the end! I hope you enjoyed this tutorial and gained valuable i
 In just a few hours, we built an intelligent chatbot using Quarkus and Quarkus LangChain4j, demonstrating how to integrate cutting-edge AI capabilities into a modern application. 
 Throughout the process, we explored key concepts, including:
 
-## Section 1 - AI Apps
+## Section 1 - Generative AI Apps
 - Integrating a large language model (LLM) seamlessly within a Quarkus application
 - Utilizing annotations to efficiently pass prompts and structure interactions
 - Implementing the Retrieval Augmented Generation (RAG) pattern to enrich responses with external data
@@ -14,7 +14,7 @@ Throughout the process, we explored key concepts, including:
 - Adding observability and fault tolerance
 - Adding an embedded LLM into our Java application
 
-## Section 2 - Agentic Workflows
+## Section 2 - Agentic AI Workflows
 - Integrating AI agents into a Quarkus application in a similar way to AI services
 - Connecting agents into chains using sequence workflows with shared state
 - Invoking agents in parallel workflows to perform work more efficiently
