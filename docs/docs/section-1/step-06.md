@@ -293,7 +293,7 @@ Please, only use the following information:
 
 Edit the `create` method in the `RagRetriever` class to:
 
-```java hl_lines="22-30" title="RagRetriever.java"
+```java hl_lines="22-45" title="RagRetriever.java"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagRetriever.java:ragretriever-1"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagRetriever.java:ragretriever-3"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagRetriever.java:ragretriever-2"
