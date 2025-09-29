@@ -11,7 +11,7 @@ It provides the _scope_ of the conversation and provides instructions to the LLM
 
 ## System messages
 
-A _system message_ in a LLM is a directive that helps guide the model’s behavior and tone during an interaction.
+A **system message** in a LLM is a directive that helps guide the model’s behavior and tone during an interaction.
 It typically sets the context, role, or boundaries for the model, defining how it should respond to the user.
 
 System messages are crucial for shaping the model’s output, ensuring it aligns with specific requirements such as
@@ -19,7 +19,8 @@ formality, topic focus, or specific task execution. Unlike user input, the syste
 conversation but influences the overall experience.
 
 To add a system message, we need to enhance our `CustomerSupportAgent` interface.
-==Update the `CustomerSupportAgent` interface content to become:==
+
+Update the `CustomerSupportAgent` interface content to become:
 
 ```java hl_lines="12-16" title="CustomerSupportAgent.java"
 --8<-- "../../section-1/step-04/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgent.java"
