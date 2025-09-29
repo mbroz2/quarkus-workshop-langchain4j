@@ -46,26 +46,12 @@ You can either use the code from `step-01` and continue from there, or check the
 ??? important "Do not forget to close the application"
     If you have the application running from the previous step and decide to use the `step-02` directory, make sure to stop it (CTRL+C) before continuing.
 
-If you are continuing to build the app in the `step-01` directory, start by copying some files (which don't relate to the experience of building agentic AI apps) from `step-02`. Run the following commands from your `section-2` directory:
+If you are continuing to build the app in the `step-01` directory, start by copying some files (which don't relate to the experience of building agentic AI apps) from `step-02`. Run the following command from your `section-2` directory:
 
 For Linux/macOS:
 ```bash
-cd ./step-01
-cp ../step-02/src/main/resources/static/css/styles.css ./src/main/resources/static/css/styles.css
-cp ../step-02/src/main/resources/static/js/app.js ./src/main/resources/static/js/app.js
-cp ../step-02/src/main/resources/templates/index.html ./src/main/resources/templates/index.html
-cp ../step-02/src/main/java/com/carmanagement/service/CarService.java ./src/main/java/com/carmanagement/service/CarService.java
-cp ../step-02/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
-```
-
-For Windows:
-```batch
-cd .\step-01
-copy ..\step-02\src\main\resources\static\css\styles.css .\src\main\resources\static\css\styles.css
-copy ..\step-02\src\main\resources\static\js\app.js .\src\main\resources\static\js\app.js
-copy ..\step-02\src\main\resources\templates\index.html .\src\main\resources\templates\index.html
-copy ..\step-02\src\main\java\com\carmanagement\service\CarService.java .\src\main\java\com\carmanagement\service\CarService.java
-copy ..\step-02\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
+# Run the setup script to copy necessary files
+./setup-step-02.sh
 ```
 
 ## Create/Update agent and workflow declarations
@@ -82,19 +68,7 @@ As we've seen before, the interface for an agent defines the system message, use
 
 ### Create a `CarProcessingWorkflow` Agent Interface to Use for the Sequence Workflow
 
-First, create the directory:
-
-For Linux/macOS:
-```bash
-mkdir -p ./src/main/java/com/carmanagement/agentic/workflow
-```
-
-For Windows:
-```batch
-mkdir .\src\main\java\com\carmanagement\agentic\workflow
-```
-
-Then create the agent interface in that directory for the sequence workflow:
+In the `src/main/java/com/carmanagement/agentic/workflow/` directory, create the `CarProcessingWorkflow` agent interface to use for the sequence workflow:
 
 ```java hl_lines="16" title="CarProcessingWorkflow.java"
 --8<-- "../../section-2/step-02/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"

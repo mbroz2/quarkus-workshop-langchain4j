@@ -51,26 +51,12 @@ Define the agents and workflows:
 
 ## Before You Begin
     
-If you are continuing to build the app in the `step-01` directory, start by copying some files (which don't relate to the experience of building agentic AI apps) from `step-03`. Run the following commands from your `section-2` directory:
+If you are continuing to build the app in the `step-01` directory, start by copying some files (which don't relate to the experience of building agentic AI apps) from `step-03`. Run the following command from your `section-2` directory:
 
 For Linux/macOS:
 ```bash
-cd ./step-01
-cp ../step-03/src/main/resources/static/css/styles.css ./src/main/resources/static/css/styles.css
-cp ../step-03/src/main/resources/static/js/app.js ./src/main/resources/static/js/app.js
-cp ../step-03/src/main/resources/templates/index.html ./src/main/resources/templates/index.html
-cp ../step-03/src/main/java/com/carmanagement/service/CarService.java ./src/main/java/com/carmanagement/service/CarService.java
-cp ../step-03/src/main/java/com/carmanagement/model/CarStatus.java ./src/main/java/com/carmanagement/model/CarStatus.java
-```
-
-For Windows:
-```batch
-cd .\step-01
-copy ..\step-03\src\main\resources\static\css\styles.css .\src\main\resources\static\css\styles.css
-copy ..\step-03\src\main\resources\static\js\app.js .\src\main\resources\static\js\app.js
-copy ..\step-03\src\main\resources\templates\index.html .\src\main\resources\templates\index.html
-copy ..\step-03\src\main\java\com\carmanagement\service\CarService.java .\src\main\java\com\carmanagement\service\CarService.java
-copy ..\step-03\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
+# Run the setup script to copy necessary files
+./setup-step-03.sh
 ```
 
 ## Create/Update agent and workflow declarations
