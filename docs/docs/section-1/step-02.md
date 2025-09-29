@@ -96,7 +96,7 @@ Change the value to `0` and you will likely see the model repeat the word 50 tim
 
 ## Final configuration
 
-==After playing with the configuration, you can set it to the following values:==
+After playing with the configuration, you can set it to the following values:
 
 ```properties title="application.properties"
 --8<-- "../../section-1/step-02/src/main/resources/application.properties"
