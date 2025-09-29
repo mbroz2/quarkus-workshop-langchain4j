@@ -1,7 +1,7 @@
 # Step 05 - Introduction to the RAG pattern
 
 In this step, we will introduce the RAG pattern and implement it in our AI service.
-The [RAG (Retrieval Augmented Generation) pattern](https://research.ibm.com/blog/retrieval-augmented-generation-RAG){:target="_blank"} is a way to extend the knowledge of the LLM used in the AI service.
+The [RAG (Retrieval Augmented Generation) pattern](https://research.ibm.com/blog/retrieval-augmented-generation-RAG){target="_blank"} is a way to extend the knowledge of the LLM used in the AI service.
 
 Indeed, the LLM is trained on a very large dataset.
 But this dataset is general and does not contain specific information about your company, your domain of expertise, or any information that could change frequently.
@@ -9,10 +9,10 @@ The RAG pattern allows you to add a _knowledge base_ to the LLM.
 
 The RAG pattern is composed of two parts:
 
-- **Ingestion**: This is the part that stores data in the knowledge base.
-- **Augmentation**: This is the part that adds the retrieved information to the input of the LLM.
+- **Ingestion**: Documents are ingested, segmented (chunked), embedded into vectors, and stored in a vector store.
+- **Retrieval**: At query time, the question is embedded, relevant segments are retrieved via similarity search, and then sent to the LLM along with the query.
 
-We will see these two parts in the next steps, but first let's use [EasyRag](https://docs.quarkiverse.io/quarkus-langchain4j/dev/easy-rag.html){:target="_blank"} to get started and understand the RAG pattern.
+We will see these two parts in the next steps, but first let's use [Easy RAG](https://docs.quarkiverse.io/quarkus-langchain4j/dev/rag-easy-rag.html){target="_blank"} to get started and understand the RAG pattern.
 EasyRag abstracts most of the complexity of implementing the RAG pattern.
 Basically, you drop your data in a configured directory, and _voilà_!
 
@@ -42,8 +42,8 @@ Add the following dependency to your `pom.xml` file:
 The RAG pattern allows to extend the LLM knowledge with your own data.
 So, let's add some data.
 
-==Create a directory named `rag` in the `src/main/resources` directory.
-Then, create a file named `miles-of-smiles-terms-of-use.txt` in the `rag` directory with the following content:==
+Create a directory named `rag` in the `src/main/resources` directory.
+Then, create a file named `miles-of-smiles-terms-of-use.txt` in the `rag` directory with the following content:
 
 ```text title="miles-of-smiles-terms-of-use.txt"
 --8<-- "../../section-1/step-05/src/main/resources/rag/miles-of-smiles-terms-of-use.txt"
@@ -52,12 +52,12 @@ Alternatively, you can copy the `miles-of-smiles-terms-of-use.txt` file from the
 
 Note that we are adding a single file, but you can add as many files as you want in the `rag` directory.
 Also, it's not limited to text files, you can use PDF, Word, or any other format.
-See the [EasyRag documentation](https://docs.quarkiverse.io/quarkus-langchain4j/dev/easy-rag.html){target="_blank"} for more information.
+See the [Easy RAG documentation](https://docs.quarkiverse.io/quarkus-langchain4j/dev/rag-easy-rag.html){target="_blank"} for more information.
 
-## Configuring EasyRag
+## Configuring Easy RAG
 
 Now that we have some data, we need to configure EasyRag to ingest it.
-==In the `src/main/resources/application.properties` file, add the following configuration:==
+In the `src/main/resources/application.properties` file, add the following configuration:
 
 ```properties title="application.properties"
 --8<-- "../../section-1/step-05/src/main/resources/application.properties:easy-rag"
@@ -81,6 +81,7 @@ When you start the application, you should see the following lines in the log :
 
 ```bash
 INFO  [io.qua.lan.eas.run.EasyRagIngestor] (Quarkus Main Thread) Ingesting documents from path: src/main/resources/rag, path matcher = glob:**, recursive = true
+...
 INFO  [io.qua.lan.eas.run.EasyRagIngestor] (Quarkus Main Thread) Ingested 1 files as 8 documents
 ```
 
@@ -98,14 +99,15 @@ Right now, we use the [default embedding model provided by OpenAI](https://platf
 We will see in the next steps how to use your own embedding model.
 
 Let's have a look at the content of our knowledge base.
-==Open the browser to [http://localhost:8080/q/dev-ui](http://localhost:8080/q/dev-ui/).
+
+Open the browser to [http://localhost:8080/q/dev-ui](http://localhost:8080/q/dev-ui/).
 This is the Quarkus Dev UI, the toolbox with everything you need to develop your Quarkus application.
-Locate the _LangChain4j_ tile, and click on the _Embedding store_ link:==
+Locate the _LangChain4j_ tile, and click on the _Embedding store_ link:
 
 ![Embedding store link in the dev UI](../images/langchain4j-tile.png)
 
-==Then, look for the `Search for relevant embeddings` section.
-Enter a query in the `Search text` field, for example, `Cancellation`, and then click on the `Search` button:==
+Then, look for the `Search for relevant embeddings` section.
+Enter a query in the `Search text` field, for example, `Cancellation`, and then click on the `Search` button:
 
 ![Search for relevant embeddings](../images/embedding-search.png)
 
@@ -119,8 +121,8 @@ The closer the embeddings, the higher the score.
 ### Augmentation
 
 Let's now go back to our chatbot and test the RAG pattern.
-==Open the browser at [http://localhost:8080](http://localhost:8080).
-Ask a question related to the terms of use:==
+Open the browser at [http://localhost:8080](http://localhost:8080).
+Ask a question related to the terms of use:
 
 ```
 What can you tell me about your cancellation policy?
