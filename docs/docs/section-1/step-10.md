@@ -180,13 +180,8 @@ You can add metrics collection with micrometer by adding the `quarkus-micrometer
 You then need to add a collector specific extension to format the metrics accordingly. In the below example
 we have included the `quarkus-micrometer-registry-otlp` extension for the general purpose OpenTelemetry. This extension imports the quarkus-micrometer as well, so no need to specify it implicitly. Add the following dependency to your code:
 
-```xml title="pom.xml"
-        <!-- Export metrics for OpenTelemetry compatible collectors -->
-        <dependency>
-            <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-otlp</artifactId>
-            <version>3.2.4</version>
-        </dependency>
+```xml hl_lines=114-118" title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml"
 ```
 
 By default Quarkus will collect a variety of useful metrics for you by default,
@@ -208,7 +203,7 @@ langchain4j_aiservices_seconds_sum{aiservice="PromptInjectionDetectionService",m
 
 You can also customize the metrics collection by adding
 your own custom metrics. You can find more information about how to use Quarkus Micrometer in the
-[Quarkus Micrometer documentation](https://quarkus.io/guides/micrometer).
+[Quarkus Micrometer documentation](https://quarkus.io/guides/micrometer){target="_blank"}).
 
 ### Tracing
 
@@ -230,15 +225,8 @@ To add OpenTelemetry (and by extension tracing) to your application, you will ne
 extensions to your pom.xml file. You can optionally also add the opentelemetry-jdbc dependency to collect
  trace data from JDBC queries.
 
-```xml title="pom.xml"
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-opentelemetry</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry.instrumentation</groupId>
-            <artifactId>opentelemetry-jdbc</artifactId>
-        </dependency>
+```xml hl_lines=101-108" title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml"
 ```
 
 By adding these extensions to your applications, Quarkus does a lot of heavy lifting for you in terms of setting up
@@ -248,12 +236,8 @@ integrates with the OpenTelemetry extension to collect traces regarding your int
 You can configure the opentelemetry tracing functionality by e.g. setting
 the endpoint and headers for your tracing service, as well as the format of the traces:
 
-```properties
-# quarkus.otel.exporter.otlp.traces.endpoint=http://localhost:4317
-quarkus.otel.exporter.otlp.traces.headers=authorization=Bearer my_secret 
-quarkus.log.console.format=%d{HH:mm:ss} %-5p traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n  
-# enable tracing db requests
-quarkus.datasource.jdbc.telemetry=true
+```properties hl_lines=17-29" title="application.properties"
+--8<-- "../../section-1/step-10/src/main/resources/application.properties"
 ```
 
 You might notice in the above example that the traces endpoint is commented out.
@@ -275,21 +259,14 @@ automatically (or may we say 'automagically'?) start up in their respective cont
 
 Add the following dependencies in your `pom.xml`:
 
-```xml title="pom.xml"
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-observability-devservices-lgtm</artifactId>
-            <scope>provided</scope>
-        </dependency>
+```xml hl_lines=109-113" title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml"
 ```
 
 In the application.properties, let's enable the OpenTelemetry tracing and log collection features:
 
-```properties
-quarkus.otel.logs.enabled=true
-quarkus.otel.traces.enabled=true
-# Disable LTGM in test mode
-%test.quarkus.observability.enabled=false
+```properties hl_lines=13-15" title="application.properties"
+--8<-- "../../section-1/step-10/src/main/resources/application.properties"
 ```
 
 Now refresh the chatbot application in your browser and interact with the bot again to generate some new observability data.
@@ -303,28 +280,35 @@ The easiest way to find it is to go to the Quarkus Dev UI ([http://localhost:808
 
 Find the `grafana.endpoint` and open the url in another browser tab. Use admin/admin to log in if you need to.
 
-Let's first explore the provided custom metrics dashboards that the dev service creates. Go to "Dashboards" in the left menu.
-You will notice 2 dashboards, one for OTLP and one for Prometheus. Remember how we added both the Micrometer OpenTelemetry and Prometheus
-registry extensions? They're both reflected here. Feel free to explore the dashboards.
+Let's first explore the provided custom metrics dashboards that the dev service creates. Go to `Dashboards` in the left menu.
+You will notice 4 dashboards:
+
+* Quarkus Micrometer OpenTelemetry
+* Quarkus Micrometer OTLP registry
+* Quarkus Micrometer Prometheus registry
+* Quarkus OpenTelemetry Logging
+
+Remember how we added both the Micrometer OpenTelemetry and Prometheus registry extensions? They're both reflected here. Feel free to explore the dashboards.
+
 If you don't see much data data in the graphs, you may want to select a shorter time span in the top right of your screen and/or
 create some more chat requests.
 
 ![Grafana Dashboard](../images/grafana-dashboard.png)
 
-You can also find an aggregation of all metrics (including the LangChain4j relevant ones) by going to Explore > Metrics:
+You can also find an aggregation of all metrics (including the LangChain4j relevant ones) by going to `Explore > Metrics`:
 
 ![Prometheus Metrics graphs](../images/prometheus-metrics.png)
 
 Now let's explore the Query functionality to find specific data. Click on the `Explore` menu item.
 An interactive query window will open up.
-Next to "Outline" you'll see that Prometheus is selected in the dropdown. Select `gen_ai_client_estimated_cost_total`.
+Next to `Outline` you'll see that Prometheus is selected in the dropdown. Select `gen_ai_client_estimated_cost_total`.
 Then, in label filters, select `currency` and value `USD`. Finally, click the Run query button to see the results.
 You should see an estimated cost aggregation of the latest calls to the model. This is an experimental feature
 based on what typical calls to ChatGPT cost.
 
 ![Estimated Cost Graph](../images/genai-estimated-cost.png)
 
-Let's now take a look at how we can get our traces from Tempo. In the same Query window next the "Outline",
+Let's now take a look at how we can get our traces from Tempo. In the same Query window next the `Outline`,
 select `Tempo` instead of Prometheus. Then, click on `Search` next to Query type. You will see a table appear
 below with a list of the latest trace IDs and the service they relate to.
 
@@ -356,12 +340,8 @@ Ultimately, calling an LLM is not much different than making traditional REST ca
 If you're familiar with [MicroProfile](https://microprofile.io){target="_blank"}, you may know that it has a specification for how to implement Fault Tolerance. Quarkus implements this feature with the `quarkus-smallrye-fault-tolerance`
 extension. Go ahead and add it to the your pom.xml:
 
-```xml title="pom.xml"
-        <!-- Fault Tolerance -->
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
-        </dependency>
+```xml hl_lines=120-124" title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml"
 ```
 
 The Microprofile Fault Tolerance spec defines 3 main fault tolerance capabilities:
@@ -378,7 +358,7 @@ following annotations:
 --8<-- "../../section-1/step-10/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgent.java"
 ```
 
-That's all. To test the implemented fault tolerance, we'll need to 'break' our application.
+That's all. To test the implemented fault tolerance, we'll need to `break` our application.
 You can either turn off your wifi, set the @Timeout value to something very low (e.g. 10), or
 you could set the inference server url to something that won't resolve, eg:
 

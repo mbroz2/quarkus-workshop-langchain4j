@@ -56,7 +56,7 @@ It will be replaced by the user query when the AI service is called.
 As we have seen in the previous step with `Today is {current_date}.`, the prompts are templates that can be filled with
 values, here the `userQuery` parameter.
 
-The user message follows a [_few shot learning_](https://www.ibm.com/topics/few-shot-learning) format.
+The user message follows a [_few shot learning_](https://www.ibm.com/topics/few-shot-learning){target="_blank"}) format.
 It provides examples of user queries and the expected output.
 This way the LLM can learn from these examples and understand the expected behavior of the AI service.
 This is a very common technique in AI to _train_ models with a few examples and let them generalize.
