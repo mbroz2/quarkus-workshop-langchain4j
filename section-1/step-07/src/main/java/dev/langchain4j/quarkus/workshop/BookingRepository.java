@@ -16,7 +16,7 @@ import dev.langchain4j.agent.tool.Tool;
 public class BookingRepository implements PanacheRepository<Booking> {
 
 
-    @Tool("Cancel a booking")
+    @Tool("Cancel a booking") // (1)
     @Transactional
     public void cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
         var booking = getBookingDetails(bookingId, customerFirstName, customerLastName);
@@ -31,7 +31,7 @@ public class BookingRepository implements PanacheRepository<Booking> {
         delete(booking);
     }
 
-    @Tool("List booking for a customer")
+    @Tool("List booking for a customer") // (2)
     @Transactional
     public List<Booking> listBookingsForCustomer(String customerName, String customerSurname) {
         var found = Customer.findByFirstAndLastName(customerName, customerSurname);
@@ -42,7 +42,7 @@ public class BookingRepository implements PanacheRepository<Booking> {
     }
 
 
-    @Tool("Get booking details")
+    @Tool("Get booking details") // (3)
     @Transactional
     public Booking getBookingDetails(long bookingId, String customerFirstName, String customerLastName) {
         var found = findByIdOptional(bookingId)

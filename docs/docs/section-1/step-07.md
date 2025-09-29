@@ -28,7 +28,7 @@ However, we recommend you follow the step-by-step guide to understand how it wor
 ## A couple of new dependencies
 
 Before starting, we need to install a couple of new dependencies.
-==Open the `pom.xml` file and add the following dependencies:==
+Open the `pom.xml` file and add the following dependencies:
 
 ```xml title="pom.xml"
 --8<-- "../../section-1/step-07/pom.xml:step-7"
@@ -51,19 +51,19 @@ We are going to store a list of bookings in the database.
 Each booking is associated with a customer.
 A customer can have multiple bookings.
 
-==Create the `dev.langchain4j.quarkus.workshop.Customer` entity class with the following content:==
+Create the `dev.langchain4j.quarkus.workshop.Customer` entity class with the following content:
 
 ```java title="Customer.java"
 --8<-- "../../section-1/step-07/src/main/java/dev/langchain4j/quarkus/workshop/Customer.java"
 ```
 
-==Then create the `dev.langchain4j.quarkus.workshop.Booking` entity class with the following content:==
+Then create the `dev.langchain4j.quarkus.workshop.Booking` entity class with the following content:
 
 ```java title="Booking.java"
 --8<-- "../../section-1/step-07/src/main/java/dev/langchain4j/quarkus/workshop/Booking.java"
 ```
 
-==While we are at it, let's create the `dev.langchain4j.quarkus.workshop.Exceptions` class containing a set of `Exception`s we will be using:==
+While we are at it, let's create the `dev.langchain4j.quarkus.workshop.Exceptions` class containing a set of `Exception`s we will be using:
 
 ```java title="Exceptions.java"
 --8<-- "../../section-1/step-07/src/main/java/dev/langchain4j/quarkus/workshop/Exceptions.java"
@@ -72,7 +72,7 @@ A customer can have multiple bookings.
 Alright, we have our entities and exceptions.
 Let's add some data to the database.
 
-==Create the `src/main/resources/import.sql` file with the following content:==
+Create the `src/main/resources/import.sql` file with the following content:
 
 ```sql title="import.sql"
 --8<-- "../../section-1/step-07/src/main/resources/import.sql"
@@ -86,7 +86,7 @@ Without specific configuration, it will only be applied in dev mode (`./mvnw qua
 Alright, we now have everything we need to create a function that allows the LLM to retrieve data from the database.
 We are going to create a `BookingRepository` class that will contain a set of functions to interact with the database.
 
-==Create the `dev.langchain4j.quarkus.workshop.BookingRepository` class with the following content:==
+Create the `dev.langchain4j.quarkus.workshop.BookingRepository` class with the following content:
 
 ```java title="BookingRepository.java"
 --8<-- "../../section-1/step-07/src/main/java/dev/langchain4j/quarkus/workshop/BookingRepository.java"
@@ -94,9 +94,9 @@ We are going to create a `BookingRepository` class that will contain a set of fu
 
 The _repository_ defines three methods:
 
-- `cancelBooking` to cancel a booking. It checks if the booking can be cancelled and deletes it from the database.
-- `listBookingsForCustomer` to list all bookings for a customer.
-- `getBookingDetails` to retrieve the details of a booking.
+<1> `cancelBooking` to cancel a booking. It checks if the booking can be cancelled and deletes it from the database.
+<2> `listBookingsForCustomer` to list all bookings for a customer.
+<3> `getBookingDetails` to retrieve the details of a booking.
 
 Each method is annotated with the `@Tool` annotation.
 That is how we tell the LLM that these methods can be called.
