@@ -124,13 +124,13 @@ Hello, I would like to retrieve information about my booking.
 My name is Speedy McWheels and my booking id is 2.
 ```
 
-**AI**: The booking details for Speedy McWheels are as follows: - **Booking ID:** 2 - **Customer Name:** Speedy McWheels - **Rental Dates:** From August 5, 2024, to August 12, 2024 - **Location:** Los Angeles, California Would you like information about the weather for this location, or is there anything else I can assist you with regarding this booking?
+**AI**: Here are the details of your booking, Speedy McWheels: - **Booking ID:** 2 - **Location:** Sao Paulo, Brazil - **Start Date:** September 17, 2025 - **End Date:** September 19, 2025 ### Weather Forecast for Sao Paulo, Brazil on Your Booking Dates: - **Temperature:** Ranges from 18°C to 30°C - **Precipitation:** Minimal chance of rain - **Snowfall:** None ### Recommendations: Since the temperatures in Sao Paulo can get quite warm, consider renting a vehicle with air conditioning to ensure comfort during your drive. If you have any other questions or need further assistance, feel free to ask!
 
 ```text title="You"
 yes I would like to know if I need any additional equipment
 ```
 
-**AI**: The weather in Los Angeles, California, for your rental period is expected to be warm with no snowfall or significant precipitation. Temperatures are likely to vary between 14°C and 30°C. Given this forecast, here’s what you might need: - **Air Conditioning:** As the temperatures can rise up to 30°C, having air conditioning in your rental car would ensure a comfortable drive. - **No Snow Chains Needed:** Since there is no snow forecasted, snow chains won't be needed. If there's anything else you need help with, feel free to ask!
+**AI**: Based on the provided weather forecast for Sao Paulo, Brazil during your booking dates (September 17-19, 2025), you will not need any additional equipment such as snow chains or winter gear, as there is no expected snow or significant rainfall. However, it would be wise to ensure your rental car has air conditioning due to the warm temperatures. If you have any other questions or need further assistance, feel free to ask!
 
 [//]: # (![type:video]&#40;images/chat-booking.mp4&#41;{: style='width: 80%'})
 
