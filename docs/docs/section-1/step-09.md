@@ -4,7 +4,7 @@ In the previous step we introduced function calling, enabling the LLM to interac
 While this feature provides a powerful mechanism to extend the chatbot's capabilities, it also introduces new risks,
 such as [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/){target="_blank"}.
 
-In this step we will explore how to mitigate prompt injection using [input guardrails](https://docs.quarkiverse.io/quarkus-langchain4j/dev/guardrails.html#_input_guardrails), that are a set of functions executed before and after the LLM's response to ensure the safety and reliability of
+In this step we will explore how to mitigate prompt injection using [input guardrails](https://docs.quarkiverse.io/quarkus-langchain4j/dev/guardrails.html#_input_guardrails){target="_blank"}, that are a set of functions executed before and after the LLM's response to ensure the safety and reliability of
 the interaction.
 
 ![Guardrails](../images/guardrails.png)
@@ -38,7 +38,8 @@ The final code of this step is available in the `step-09` directory.
 ## An AI service to detect prompt injection
 
 To prevent prompt injection, we will use an AI service to analyze the user's input and detect malicious content.
-==Create the `dev.langchain4j.quarkus.workshop.PromptInjectionDetectionService` class with the following content:==
+
+Create the `dev.langchain4j.quarkus.workshop.PromptInjectionDetectionService` class with the following content:
 
 ```java title="PromptInjectionDetectionService.java"
 --8<-- "../../section-1/step-09/src/main/java/dev/langchain4j/quarkus/workshop/PromptInjectionDetectionService.java"
@@ -98,9 +99,9 @@ Basically, we only added the `@InputGuardrails(PromptInjectionGuard.class)` anno
 When the application invokes the `chat` method, the `PromptInjectionGuard` guardrail will be executed first.
 If it fails, an exception is thrown and the offensive user message is not passed to _main_ LLM.
 
-Before going further, we need to update the
-`dev.langchain4j.quarkus.workshop.CustomerSupportAgentWebSocket` class a bit.
-==Edit the `dev.langchain4j.quarkus.workshop.CustomerSupportAgentWebSocket` class to become:==
+Before going further, we need to update the `dev.langchain4j.quarkus.workshop.CustomerSupportAgentWebSocket` class a bit.
+
+Edit the `dev.langchain4j.quarkus.workshop.CustomerSupportAgentWebSocket` class to become:
 
 ```java hl_lines="8 24-32" title="CustomerSupportAgentWebSocket.java"
 --8<-- "../../section-1/step-09/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgentWebSocket.java"
