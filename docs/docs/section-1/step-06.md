@@ -1,6 +1,6 @@
 # Step 06 - Deconstructing the RAG pattern
 
-In the previous step, we implemented a RAG (Retrieval Augmented Generation) pattern in our AI service using [EasyRag](https://docs.quarkiverse.io/quarkus-langchain4j/dev/easy-rag.html){target="_blank"}.
+In the previous step, we implemented a RAG (Retrieval Augmented Generation) pattern in our AI service using [Easy RAG](https://docs.quarkiverse.io/quarkus-langchain4j/dev/rag-easy-rag.html){target="_blank"}.
 Most of the complexity was hidden by EasyRag.
 
 In this step, we will deconstruct the RAG pattern to understand how it works under the hood.
@@ -12,13 +12,13 @@ Otherwise, let's get started!
 ## A bit of cleanup
 
 Let's start with a bit of cleanup.
-==First, open the `src/main/resources/application.properties` file and remove the following configuration:==
+First, open the `src/main/resources/application.properties` file and remove the following configuration:
 
 ```properties title="application.properties"
 --8<-- "../../section-1/step-05/src/main/resources/application.properties:easy-rag"
 ```
 
-==Then, open the `pom.xml` file and remove the following dependency:==
+Then, open the `pom.xml` file and remove the following dependency:
 
 ```xml title="pom.xml"
 --8<-- "../../section-1/step-05/pom.xml:easy-rag"
@@ -43,7 +43,7 @@ You can however use your own embedding model as well.
 
 In this step, we will use the [bge-small-en-q](https://huggingface.co/neuralmagic/bge-small-en-v1.5-quant){target="_blank"} embedding model.
 
-==Add the following dependency to your `pom.xml` file:==
+Add the following dependency to your `pom.xml` file:
 
 ```xml title="pom.xml"
 --8<-- "../../section-1/step-06/pom.xml:embedding-bge"
@@ -83,7 +83,7 @@ There are many options to store the embeddings, like [Redis](https://docs.quarki
 Here, we will use the [PostgreSQL pgVector store](https://docs.quarkiverse.io/quarkus-langchain4j/dev/pgvector-store.html){target="_blank"}, a popular relational database. If you are not able to run Dev Services with Docker or Podman, you can use 
 [an in-memory embedding store](#in-memory-embedding-store).
 
-==Add the following dependency to your `pom.xml` file:==
+Add the following dependency to your `pom.xml` file:
 
 ```xml title="pom.xml"
 --8<-- "../../section-1/step-06/pom.xml:pgvector"
@@ -97,7 +97,8 @@ Here, we will use the [PostgreSQL pgVector store](https://docs.quarkiverse.io/qu
     ```
 
 This embedding store (like many others) needs to know the size of the embeddings that will be stored in advance.
-==Open the `src/main/resources/application.properties` file and add the following configuration:==
+
+Open the `src/main/resources/application.properties` file and add the following configuration:
 
 ```properties title="application.properties"
 --8<-- "../../section-1/step-06/src/main/resources/application.properties:pgvector"
@@ -109,7 +110,7 @@ Now we will be able to use the `io.quarkiverse.langchain4j.pgvector.PgVectorEmbe
 
 ## Ingesting documents into the vector store
 
-==While you are editing the `src/main/resources/application.properties` file, add the following configuration:==
+While you are editing the `src/main/resources/application.properties` file, add the following configuration:
 
 ```properties title="application.properties"
 --8<-- "../../section-1/step-06/src/main/resources/application.properties:rag"
@@ -123,7 +124,7 @@ Remember that the role of the _ingestor_ is to read the documents and store thei
 
 ![The ingestion process](../images/ingestion.png)
 
-==Create the `dev.langchain4j.quarkus.workshop.RagIngestion` class with the following content:==
+Create the `dev.langchain4j.quarkus.workshop.RagIngestion` class with the following content:
 
 ```java title="RagIngestion.java"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagIngestion.java"
@@ -198,7 +199,7 @@ The augmentor is responsible for extending the prompt with the retrieved segment
 
 ![The augmentation process](../images/augmentation.png)
 
-==Create the `dev.langchain4j.quarkus.workshop.RagRetriever` class with the following content:==
+Create the `dev.langchain4j.quarkus.workshop.RagRetriever` class with the following content:
 
 ```java title="RagRetriever.java"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagRetriever.java:ragretriever-1"
@@ -232,7 +233,7 @@ But let's keep it simple for now.
 ## Testing the application
 
 Let's see if everything works as expected.
-==If you stopped the application, restart it with the following command:==
+If you stopped the application, restart it with the following command:
 
 ```shell
 ./mvnw quarkus:dev
@@ -246,8 +247,9 @@ When the application starts, it will ingest the documents into the vector store.
 
 You can use the dev UI to verify the ingestion like we did in the previous step.
 This time, let's test with the chatbot instead:
-==Open your browser and go to `http://localhost:8080`.
-Ask the question to the chatbot and see if it retrieves the relevant segments and builds a cohesive answer:==
+
+Open your browser and go to `http://localhost:8080`.
+Ask the question to the chatbot and see if it retrieves the relevant segments and builds a cohesive answer:
 
 ```
 What can you tell me about your cancellation policy?
@@ -289,7 +291,7 @@ Please, only use the following information:
 - <segment 3>
 ```
 
-==Edit the `create` method in the `RagRetriever` class to:==
+Edit the `create` method in the `RagRetriever` class to:
 
 ```java hl_lines="30-38" title="RagRetriever.java"
 --8<-- "../../section-1/step-06/src/main/java/dev/langchain4j/quarkus/workshop/RagRetriever.java:ragretriever-1"
