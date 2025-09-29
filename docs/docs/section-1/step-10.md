@@ -29,9 +29,8 @@ already been logging interactions with the model in previous steps.
 Go ahead and examine the application.properties file in the `src/main/resources` directory.
 You will see 2 properties (if you don't see them, go ahead and add them):
 
-```properties
-quarkus.langchain4j.openai.chat-model.log-requests=true
-quarkus.langchain4j.openai.chat-model.log-responses=true
+```properties title="application.properties"
+--8<-- "../../section-1/step-10/src/main/resources/application.properties:logs"
 ```
 
 The `log-requests` property enables logging of all requests made to the model,
@@ -180,8 +179,8 @@ You can add metrics collection with micrometer by adding the `quarkus-micrometer
 You then need to add a collector specific extension to format the metrics accordingly. In the below example
 we have included the `quarkus-micrometer-registry-otlp` extension for the general purpose OpenTelemetry. This extension imports the quarkus-micrometer as well, so no need to specify it implicitly. Add the following dependency to your code:
 
-```xml hl_lines=114-118" title="pom.xml"
---8<-- "../../section-1/step-10/pom.xml"
+```xml title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml:otlp"
 ```
 
 By default Quarkus will collect a variety of useful metrics for you by default,
@@ -225,8 +224,8 @@ To add OpenTelemetry (and by extension tracing) to your application, you will ne
 extensions to your pom.xml file. You can optionally also add the opentelemetry-jdbc dependency to collect
  trace data from JDBC queries.
 
-```xml hl_lines=101-108" title="pom.xml"
---8<-- "../../section-1/step-10/pom.xml"
+```xml title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml:otel"
 ```
 
 By adding these extensions to your applications, Quarkus does a lot of heavy lifting for you in terms of setting up
@@ -236,8 +235,8 @@ integrates with the OpenTelemetry extension to collect traces regarding your int
 You can configure the opentelemetry tracing functionality by e.g. setting
 the endpoint and headers for your tracing service, as well as the format of the traces:
 
-```properties hl_lines=17-29" title="application.properties"
---8<-- "../../section-1/step-10/src/main/resources/application.properties"
+```properties title="application.properties"
+--8<-- "../../section-1/step-10/src/main/resources/application.properties:traces"
 ```
 
 You might notice in the above example that the traces endpoint is commented out.
@@ -259,14 +258,14 @@ automatically (or may we say 'automagically'?) start up in their respective cont
 
 Add the following dependencies in your `pom.xml`:
 
-```xml hl_lines=109-113" title="pom.xml"
---8<-- "../../section-1/step-10/pom.xml"
+```xml title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml:lgtm"
 ```
 
 In the application.properties, let's enable the OpenTelemetry tracing and log collection features:
 
-```properties hl_lines=13-15" title="application.properties"
---8<-- "../../section-1/step-10/src/main/resources/application.properties"
+```properties title="application.properties"
+--8<-- "../../section-1/step-10/src/main/resources/application.properties:otel"
 ```
 
 Now refresh the chatbot application in your browser and interact with the bot again to generate some new observability data.
@@ -340,8 +339,8 @@ Ultimately, calling an LLM is not much different than making traditional REST ca
 If you're familiar with [MicroProfile](https://microprofile.io){target="_blank"}, you may know that it has a specification for how to implement Fault Tolerance. Quarkus implements this feature with the `quarkus-smallrye-fault-tolerance`
 extension. Go ahead and add it to the your pom.xml:
 
-```xml hl_lines=120-124" title="pom.xml"
---8<-- "../../section-1/step-10/pom.xml"
+```xml title="pom.xml"
+--8<-- "../../section-1/step-10/pom.xml:tolerance"
 ```
 
 The Microprofile Fault Tolerance spec defines 3 main fault tolerance capabilities:

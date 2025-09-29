@@ -1,6 +1,6 @@
 # Step 11 - Serving the model in pure Java with Jlama
 
-So far we relied on OpenAI to serve the LLM that we used to build our application, but the quarkus-langchain4j integration makes it straightforward to integrate any other service provider. For instance we could serve our model on our local machine through an [Ollama](https://ollama.com/) server. Even better we may want to serve it in Java and directly embedded in our Quarkus application without the need of querying an external service through REST calls. In this step we will see how to make this possible through [Jlama](https://github.com/tjake/Jlama).
+So far we relied on OpenAI to serve the LLM that we used to build our application, but the quarkus-langchain4j integration makes it straightforward to integrate any other service provider. For instance we could serve our model on our local machine through an [Ollama](https://ollama.com/){target="_blank"} server. Even better we may want to serve it in Java and directly embedded in our Quarkus application without the need of querying an external service through REST calls. In this step we will see how to make this possible through [Jlama](https://github.com/tjake/Jlama){target="_blank"}.
 
 ## Introducing Jlama
 
@@ -10,7 +10,7 @@ The final code of this step is available in the `step-11` directory.
 
 ## Adding Jlama dependencies
 
-Jlama is well integrated with Quarkus through the dedicated langchain4j based extension. Note that for performance reasons Jlama uses the [Vector API](https://openjdk.org/jeps/469) which is still in preview in Java 23, and very likely will be released as a supported feature in Java 25.
+Jlama is well integrated with Quarkus through the dedicated langchain4j based extension. Note that for performance reasons Jlama uses the [Vector API](https://openjdk.org/jeps/469){target="_blank"} which is still in preview in Java 23, and very likely will be released as a supported feature in Java 25.
 
 For this reason the first step to do is enabling the `quarkus-maven-plugin` in our pom file to use this preview API, by adding the following configuration to it.
 
@@ -108,7 +108,7 @@ Do not return anything else. Do not even return a newline or a leading field. On
 
 and return together with that number a long explanation of how it calculated the score. This makes the `PromptInjectionDetectionService` to fail, not being able to convert that verbal explanation into a double.
 
-The [output guardrails](https://docs.quarkiverse.io/quarkus-langchain4j/dev/guardrails.html#_output_guardrails) provided by the Quarkus-LangChain4j extension are functions invoked once the LLM has produced its output, allowing to rewrite, or even block, that output before passing it downstream. In our case we can try to sanitize the hallucinated LLM response and extract a single number from it by creating the `dev.langchain4j.quarkus.workshop.NumericOutputSanitizerGuard` class with the following content:==
+The [output guardrails](https://docs.quarkiverse.io/quarkus-langchain4j/dev/guardrails.html#_output_guardrails) provided by the Quarkus-LangChain4j extension are functions invoked once the LLM has produced its output, allowing to rewrite, or even block, that output before passing it downstream. In our case we can try to sanitize the hallucinated LLM response and extract a single number from it by creating the `dev.langchain4j.quarkus.workshop.NumericOutputSanitizerGuard` class with the following content:
 
 ```java title="NumericOutputSanitizerGuard.java"
 --8<-- "../../section-1/step-11/src/main/java/dev/langchain4j/quarkus/workshop/NumericOutputSanitizerGuard.java"

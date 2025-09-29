@@ -98,6 +98,7 @@
         </dependency>
 
         <!-- Observability -->
+        <!-- -8<- [start:otel]       -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-opentelemetry</artifactId>
@@ -106,22 +107,29 @@
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-jdbc</artifactId>
         </dependency>
+        <!-- -8<- [end:otel]       -->
+        <!-- -8<- [start:lgtm]       -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-observability-devservices-lgtm</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- -8<- [end:lgtm]       -->
+        <!-- -8<- [start:otlp]       -->
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
             <artifactId>quarkus-micrometer-registry-otlp</artifactId>
             <version>3.4.1</version>
         </dependency>
+        <!-- -8<- [end:otlp]       -->
 
+         <!-- -8<- [start:tolerance]       -->
         <!-- Fault Tolerance -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
         </dependency>
+         <!-- -8<- [end:tolerance]       -->
 
     </dependencies>
 
