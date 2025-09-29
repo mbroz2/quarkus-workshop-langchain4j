@@ -104,7 +104,7 @@ The optional value of the annotation can gives more information about the tool, 
 
 ## Giving a toolbox to the LLM
 
-==Let's now modify our AI service interface (`dev.langchain4j.quarkus.workshop.CustomerSupportAgent`):==
+Let's now modify our AI service interface (`dev.langchain4j.quarkus.workshop.CustomerSupportAgent`):
 
 ```java hl_lines="7 18 20-21" title="CustomerSupportAgent.java"
 --8<-- "../../section-1/step-07/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgent.java"

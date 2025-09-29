@@ -1,12 +1,12 @@
 # Step 08 - Agentic AI - Model Context Protocol
 
-Building on top of the Function Calling concept of the previous step, let's explore how we can make this idea more distributed with the [Model Context Protocol](https://docs.quarkiverse.io/quarkus-mcp-server/dev/index.html) pattern.
+Building on top of the Function Calling concept of the previous step, let's explore how we can make this idea more distributed with the [Model Context Protocol](https://docs.quarkiverse.io/quarkus-mcp-server/dev/index.html){target="_blank"} pattern.
 
 Basically, we will allow the LLM to act as a true agent, calling a predefined set of tools using the Model Context Protocol to further enhance its knowledge and/or functionality. 
 
 ## Model Context Protocol
 
-The [Model Context Protocol](https://modelcontextprotocol.io/introduction) serves as an open standard, facilitating the creation of secure,
+The [Model Context Protocol](https://modelcontextprotocol.io/introduction){target="_blank"} serves as an open standard, facilitating the creation of secure,
 bidirectional links between data repositories and AI-driven tools. The design is uncomplicated;
 developers can either make their data accessible via MCP servers or construct AI applications
 (MCP clients) that interface with these servers.
@@ -28,7 +28,9 @@ In your terminal, make sure you're in the main directory of the workshop, and th
  quarkus create app dev.langchain4j.quarkus.workshop:quarkus-langchain4j-workshop-08-mcp-server:1.0-SNAPSHOT -x quarkus-mcp-server-sse -x quarkus-rest-client-jackson
 ```
 
-You should now see a new `quarkus-langchain4j-workshop-08-mcp-server` folder. In it, create a new `src/main/java/dev/langchain4j/quarkus/workshop/WeatherClient.java` file. This will be our REST client to call the remote weather API. ==Populate it with the below code:==
+You should now see a new `quarkus-langchain4j-workshop-08-mcp-server` folder. In it, create a new `src/main/java/dev/langchain4j/quarkus/workshop/WeatherClient.java` file. This will be our REST client to call the remote weather API. 
+
+Populate it with the below code:
 
 ```java title="WeatherClient.java"
 --8<-- "../../section-1/step-08-mcp-server/src/main/java/dev/langchain4j/quarkus/workshop/WeatherClient.java"
@@ -39,7 +41,7 @@ Now create an MCP server class that will contain methods annotated with @Tool, j
 --8<-- "../../section-1/step-08-mcp-server/src/main/java/dev/langchain4j/quarkus/workshop/Weather.java"
 ```
 
-Great! All that's left is to add some configurations to our project. ==To the application.properties, add the following:==
+Great! All that's left is to add some configurations to our project. To the application.properties, add the following:
 
 ```properties title="application.properties"
 # run the MCP server on a different port than the client
@@ -59,10 +61,10 @@ quarkus.rest-client."weatherclient".uri=https://api.open-meteo.com/
 
 Easy right? With just a few lines of code, we were able to build a full-blown MCP server that would require much more work with any other stack or language out there! Quarkus FTW!
 
-==Go ahead and start the server from the `quarkus-langchain4j-workshop-08-mcp-server` folder in a separate terminal window/tab:==
+Go ahead and start the server from the `quarkus-langchain4j-workshop-08-mcp-server` folder in a separate terminal window/tab:
 
 ```shell
- ./mvnw quarkus:dev"
+ ./mvnw quarkus:dev
 ```
 
 Now, let's configure our client app to use the newly built MCP server.
@@ -70,7 +72,8 @@ Now, let's configure our client app to use the newly built MCP server.
 ## A new MCP client dependency
 
 Quarkus LangChain4j supports MCP with equally minimal work. To use it, we need to install a new MCP client dependency.
-==Open the `pom.xml` file in your **main project** (ie. NOT the one containing the MCP Server) and add the following dependency:==
+
+Open the `pom.xml` file in your **main project** (ie. NOT the one containing the MCP Server) and add the following dependency:
 
 ```xml title="pom.xml"
 --8<-- "../../section-1/step-08/pom.xml:step-8"
@@ -98,7 +101,7 @@ Notice that we have used the "weather" name. We will reference this in the AI se
 
 We'll add a @McpToolBox("weather") annotation to our AI Service to reference the available MCP server. And we'll add some instructions to the prompt to make the model calls retrieve the current weather for a car rental location, and provide suggestions on what special equipment the driver might need.
 
-==In the CustomerSupportAgent.java file, update the SystemMessage with the following:==
+In the CustomerSupportAgent.java file, update the SystemMessage with the following:
 
 ```java title="CustomerSupportAgent.java"
 --8<-- "../../section-1/step-08/src/main/java/dev/langchain4j/quarkus/workshop/CustomerSupportAgent.java"
@@ -106,8 +109,7 @@ We'll add a @McpToolBox("weather") annotation to our AI Service to reference the
 
 ## Testing the function calling
 
-Let's test the function calling.
-==Make sure the application is running (`./mvnw quarkus:dev`).==
+Let's test the function calling. Make sure the application is running (`./mvnw quarkus:dev`).
 
 Open your browser and go to [http://localhost:8080](http://localhost:8080).
 In the chatbot, let's try the following interactions:
