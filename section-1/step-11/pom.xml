@@ -127,6 +127,7 @@
     </dependencies>
 
     <build>
+        <!-- -8<- [start:os-maven-plugin]       -->
          <extensions>
             <extension>
                 <groupId>kr.motd.maven</groupId>
@@ -134,6 +135,7 @@
                 <version>1.7.1</version>
             </extension>
         </extensions>
+        <!-- -8<- [end:os-maven-plugin]       -->
         
         <plugins>
 
@@ -162,16 +164,19 @@
                         </goals>
                     </execution>
                 </executions>
+                <!-- -8<- [start:enable-preview]       -->
                 <configuration>
                     <jvmArgs>--enable-preview --enable-native-access=ALL-UNNAMED</jvmArgs>
                     <modules>
                         <module>jdk.incubator.vector</module>
                     </modules>
                 </configuration>
+                <!-- -8<- [end:enable-preview]       -->
             </plugin>
         </plugins>
     </build>
 
+    <!-- -8<- [start:profile-openai-jlama]       -->
     <profiles>
         <profile>
             <id>openai</id>
@@ -214,4 +219,5 @@
             </dependencies>
         </profile>
     </profiles>
+    <!-- -8<- [end:profile-openai-jlama]       -->
 </project>

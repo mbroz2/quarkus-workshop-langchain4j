@@ -14,85 +14,29 @@ Jlama is well integrated with Quarkus through the dedicated langchain4j based ex
 
 For this reason the first step to do is enabling the `quarkus-maven-plugin` in our pom file to use this preview API, by adding the following configuration to it.
 
+
 ```xml title="pom.xml"
-<configuration>
-    <jvmArgs>--enable-preview --enable-native-access=ALL-UNNAMED</jvmArgs>
-    <modules>
-        <module>jdk.incubator.vector</module>
-    </modules>
-</configuration>
+--8<-- "../../section-1/step-11/pom.xml:enable-preview"
 ```
 
 We also need to add the `os-maven-plugin` extension under the `build` section in our pom file.
 
 ```xml title="pom.xml"
-<extensions>
-    <extension>
-        <groupId>kr.motd.maven</groupId>
-        <artifactId>os-maven-plugin</artifactId>
-        <version>1.7.1</version>
-    </extension>
-</extensions>
+--8<-- "../../section-1/step-11/pom.xml:os-maven-plugin"
 ```
 
 Then in the same file we must add the necessary dependencies to Jlama and the corresponding quarkus-langchain4j extension. This extension has to be used as an alternative to the openai one, so we could move that dependency in a profile (active by default) and put the Jlama ones into a different profile.
 
 ```xml title="pom.xml"
-<profiles>
-    <profile>
-        <id>openai</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-            <property>
-                <name>openai</name>
-            </property>
-        </activation>
-        <dependencies>
-            <dependency>
-                <groupId>io.quarkiverse.langchain4j</groupId>
-                <artifactId>quarkus-langchain4j-openai</artifactId>
-                <version>${quarkus-langchain4j.version}</version>
-            </dependency>
-        </dependencies>
-    </profile>
-    <profile>
-        <id>jlama</id>
-        <activation>
-            <property>
-                <name>jlama</name>
-            </property>
-        </activation>
-        <dependencies>
-            <dependency>
-                <groupId>io.quarkiverse.langchain4j</groupId>
-                <artifactId>quarkus-langchain4j-jlama</artifactId>
-                <version>${quarkus-langchain4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.tjake</groupId>
-                <artifactId>jlama-core</artifactId>
-                <version>${jlama.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.tjake</groupId>
-                <artifactId>jlama-native</artifactId>
-                <version>${jlama.version}</version>
-                <classifier>${os.detected.classifier}</classifier>
-            </dependency>
-        </dependencies>
-    </profile>
-</profiles>
+--8<-- "../../section-1/step-11/pom.xml:profile-openai-jlama"
 ```
 
 ## Configuring Jlama
 
 After having added the required dependencies it is now only necessary to configure the LLM served by Jlama adding the following entries to the `application.properties` file.
 
-```properties
-quarkus.langchain4j.jlama.chat-model.model-name=tjake/Llama-3.2-1B-Instruct-JQ4
-quarkus.langchain4j.jlama.chat-model.temperature=0
-quarkus.langchain4j.jlama.log-requests=true
-quarkus.langchain4j.jlama.log-responses=true
+```properties title="application.properties"
+--8<-- "../../section-1/step-11/src/main/resources/application.properties:jlama"
 ```
 
 Here we configured a relatively small model taken from the Huggingface repository of the Jlama main maintainer, but you can choose any other model. When the application is compiled for the first time the model is automatically downloaded locally by Jlama from Huggingface.
@@ -121,6 +65,12 @@ Then, exactly as we did in step 8 for the input guardrail, we can use the output
 ```
 
 ## Running the LLM inference locally
+
+Run the Quarkus dev mode with the `jlama` profile:
+
+```shell
+ ./mvnw quarkus:dev -Pjlama
+```
 
 Note that it could take a bit longer for the application to start up with the Quarkus `observability and lgtm` extensions.
 Feel free to uncomment the extensions from the `pom.xml` if you want to observe the telemetry data between the AI application and the local model.
