@@ -36,15 +36,15 @@ public class DispositionAgentExecutor {
             @Override
             public void execute(RequestContext context, EventQueue eventQueue) throws JSONRPCError {
 
-                TaskUpdater updater = new TaskUpdater(context, eventQueue);
+                TaskUpdater updater = new TaskUpdater(context, eventQueue); // (1)
                 if (context.getTask() == null) {
-                    updater.submit();
+                    updater.submit(); // (2)
                 }
                 updater.startWork();
 
                 List<String> inputs = new ArrayList<>();
                 
-                // Process the request message
+                // Process the request message (3)
                 Message message = context.getMessage();
                 if (message.getParts() != null) {
                     for (Part<?> part : message.getParts()) {
@@ -55,8 +55,8 @@ public class DispositionAgentExecutor {
                     }
                 }
             
-                // Call the agent with all parameters as strings
-                String agentResponse = dispositionAgent.processDisposition(
+                // Call the agent with all parameters as strings (4)
+                String agentResponse = dispositionAgent.processDisposition( 
                         inputs.get(0),                      // carMake
                         inputs.get(1),                      // carModel
                         Integer.parseInt(inputs.get(2)),    // carYear
@@ -64,7 +64,7 @@ public class DispositionAgentExecutor {
                         inputs.get(4),                      // carCondition
                         inputs.get(5));                     // dispositionRequest
                 
-                // Return the result
+                // Return the result (5)
                 TextPart responsePart = new TextPart(agentResponse, null);
                 List<Part<?>> parts = List.of(responsePart);
                 updater.addArtifact(parts, null, null, null);
