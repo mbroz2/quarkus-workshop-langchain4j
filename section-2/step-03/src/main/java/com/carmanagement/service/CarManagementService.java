@@ -62,7 +62,7 @@ public class CarManagementService {
                 .tools(carWashTool)
                 .build();
 
-        // MaintenanceAgent
+        // MaintenanceAgent (1)
         MaintenanceAgent maintenanceAgent = AgenticServices
                 .agentBuilder(MaintenanceAgent.class)
                 .chatModel(models.baseModel())
@@ -77,7 +77,7 @@ public class CarManagementService {
                 .build();
 
 
-        // MaintenanceFeedbackAgent
+        // MaintenanceFeedbackAgent (2)
         MaintenanceFeedbackAgent maintenanceFeedbackAgent = AgenticServices
                 .agentBuilder(MaintenanceFeedbackAgent.class)
                 .chatModel(models.baseModel())
@@ -90,13 +90,13 @@ public class CarManagementService {
                 .build();
 
 
-        // FeedbackWorkflow
+        // FeedbackWorkflow (3)
         FeedbackWorkflow feedbackWorkflow = AgenticServices
                 .parallelBuilder(FeedbackWorkflow.class)
                 .subAgents(carWashFeedbackAgent, maintenanceFeedbackAgent)
                 .build();
 
-        // ActionWorkflow
+        // ActionWorkflow (4)
         ActionWorkflow actionWorkflow = AgenticServices
                 .conditionalBuilder(ActionWorkflow.class)
                 .subAgents(
@@ -111,7 +111,7 @@ public class CarManagementService {
                 )
                 .build();
 
-        // CarProcessingWorkflow
+        // CarProcessingWorkflow (5)
         CarProcessingWorkflow carProcessingWorkflow = AgenticServices
                 .sequenceBuilder(CarProcessingWorkflow.class)
                 .subAgents(feedbackWorkflow, actionWorkflow, carConditionFeedbackAgent)
@@ -171,7 +171,7 @@ public class CarManagementService {
      * @param agenticScope The current AgenticScope containing request states
      * @return The appropriate AgentType to handle the car
      */
-    private static AgentType selectAgent(AgenticScope agenticScope) {
+    private static AgentType selectAgent(AgenticScope agenticScope) { // (6)
         AgentType result;
         
         // Check maintenance first (higher priority)

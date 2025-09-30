@@ -116,7 +116,7 @@ Create the file in your `src/main/java/com/carmanagement/agentic/agents` directo
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java"
 ```
 
-### Modify the `CarWashAgent` to use the output from the car wash feedback agent
+### Modify the `CarWashAgent` to use the output from the CarWashFeedback agent
 
 We need to modify the `CarWashAgent` to rely on requests created by the `CarWashFeedbackAgent`. The `CarWashFeedbackAgent`, uses an `outputName` of `carWashRequest`. Modify the `CarWashAgent` to use the `carWashRequest` as its input.
 
@@ -182,25 +182,25 @@ Update the file in your `src/main/java/com/carmanagement/service` directory.
 
 ### Define the `MaintenanceAgent`
 
-Notice the definition of the `MaintenanceAgent` (above), associating it with the injected `MaintenanceTool`.
+Notice the definition of the `MaintenanceAgent` **(1)**, associating it with the injected `MaintenanceTool`.
 
 ### Define the `MaintenanceFeedbackAgent`
 
-Notice the definition of the `MaintenanceFeedbackAgent` (above).
+Notice the definition of the `MaintenanceFeedbackAgent` **(2)**.
 
 ### Define a parallel workflow, `FeedbackWorkflow`, including the `CarWashFeedbackAgent` and `MaintenanceFeedbackAgent`
 
-Notice, in the `CarManagementService` (above), that we've defined the `FeedbackWorkflow` using the agent interface we created earlier. This is a parallel workflow that runs both feedback agents simultaneously to analyze the car's condition from different perspectives.
+Notice, in the `CarManagementService`, that we've defined the `FeedbackWorkflow` **(3)** using the agent interface we created earlier. This is a parallel workflow that runs both feedback agents simultaneously to analyze the car's condition from different perspectives.
 
 ### Define a conditional workflow, `ActionWorkflow`, including the `CarWashAgent` and `MaintenanceAgent`
 
-Also in the `CarManagementService` (above), notice the definition of the `ActionWorkflow`, which is a conditional workflow including the maintenance agent and the car wash agent as subagents. Conditional workflows are sequence workflows where each agent in the workflow is paired with a condition that must evaluate to true in order for the agent to be called (otherwise the agent is skipped).
+Also in the `CarManagementService`, notice the definition of the `ActionWorkflow` **(4)**, which is a conditional workflow including the maintenance agent and the car wash agent as subagents. Conditional workflows are sequence workflows where each agent in the workflow is paired with a condition that must evaluate to true in order for the agent to be called (otherwise the agent is skipped).
 
-The maintenance agent will only execute if the `selectAgent` method indicates maintenance is required. The car wash agent will only execute if the `selectAgent` method indicates a car wash is required. The `selectAgent` method looks at the values of `maintenanceRequest` and `carWashRequest`, in the agentic scope, to make the determination. In this way, we have used conditions to build a kind of router, choosing which of the agents to run for each request.
+The maintenance agent will only execute if the `selectAgent` **(6)** method indicates maintenance is required. The car wash agent will only execute if the `selectAgent` method indicates a car wash is required. The `selectAgent` method looks at the values of `maintenanceRequest` and `carWashRequest`, in the agentic scope, to make the determination. In this way, we have used conditions to build a kind of router, choosing which of the agents to run for each request.
 
 ### Modify the sequence workflow, to include the feedback workflow, the action workflow and the car condition feedback agent
 
-Finally, in the code above, we redefined the `CarProcessingWorkflow` to sequentially run the feedback workflow, the action workflow, and the car condition feedback agent:
+Finally, in the code above, we redefined the `CarProcessingWorkflow` **(5)** to sequentially run the feedback workflow, the action workflow, and the car condition feedback agent:
 
 Notice that the `CarProcessingWorkflow` is a nested workflow (workflows within workflows).
 
