@@ -40,25 +40,25 @@ public class CarManagementService {
     private CarProcessingWorkflow carProcessingWorkflow;
 
     @PostConstruct
-    void initialize() {
+    void initialize() { // (1)
         carProcessingWorkflow = createCarProcessingWorkflow();
     }
 
     private CarProcessingWorkflow createCarProcessingWorkflow() {
-        // CarWashAgent
+        // CarWashAgent (2)
         CarWashAgent carWashAgent = AgenticServices
                 .agentBuilder(CarWashAgent.class)
                 .chatModel(models.baseModel())
                 .tools(carWashTool)
                 .build();
 
-        // CarConditionFeedbackAgent
+        // CarConditionFeedbackAgent (2)
         CarConditionFeedbackAgent carConditionFeedbackAgent = AgenticServices
                 .agentBuilder(CarConditionFeedbackAgent.class)
                 .chatModel(models.baseModel())
                 .build();
 
-        // CarProcessingWorkflow - simple sequence of CarWashAgent and CarConditionFeedbackAgent
+        // CarProcessingWorkflow - simple sequence of CarWashAgent and CarConditionFeedbackAgent (3)
         CarProcessingWorkflow carProcessingWorkflow = AgenticServices
                 .sequenceBuilder(CarProcessingWorkflow.class)
                 .subAgents(carWashAgent, carConditionFeedbackAgent)
@@ -80,7 +80,7 @@ public class CarManagementService {
             return "Car not found with number: " + carNumber;
         }
 
-        // Process the car return using the workflow and get the AgenticScope
+        // Process the car return using the workflow and get the AgenticScope (4)
         ResultWithAgenticScope<String> resultWithScope = carProcessingWorkflow.processCarReturn(
                 carInfo.getMake(),
                 carInfo.getModel(),
@@ -90,7 +90,7 @@ public class CarManagementService {
                 rentalFeedback != null ? rentalFeedback : "",
                 carWashFeedback != null ? carWashFeedback : "");
 
-        String result = resultWithScope.result();
+        String result = resultWithScope.result(); // (5)
         AgenticScope scope = resultWithScope.agenticScope();
 
         // Update the car's condition with the result from CarConditionFeedbackAgent
@@ -99,7 +99,7 @@ public class CarManagementService {
             carInfo.setCondition(newCondition);
         }
 
-        // If carwash was not required, make the car available to rent
+        // If carwash was not required, make the car available to rent (6)
         if (!isRequired(scope, "carWashAgentResult")) {
             carInfo.setStatus(CarStatus.AVAILABLE);
         }

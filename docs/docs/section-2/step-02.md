@@ -89,19 +89,19 @@ Complete the steps described below, or simply copy the following code to the fil
 
 First, we'll define the sequence workflow in `CarManagementService`.
 
-- Let's modify the `initialize` method to initialize the `CarProcessingWorkflow` when the service is instantiated.
-- The `createCarProcessingWorkflow` method needs to define the `CarWashAgent` and `CarConditionFeedbackAgent` — the 2 agents we want to include in our sequence workflow.
-- The `createCarProcessingWorkflow` method then needs to define the sequence workflow, `CarProcessingWorkflow`, including the `CarWashAgent` and `CarConditionFeedbackAgent` as subagents (the subagent list represents the list of agents that are in the workflow).
+1. Let's modify the `initialize` method to initialize the `CarProcessingWorkflow` when the service is instantiated.
+2. The `createCarProcessingWorkflow` method needs to define the `CarWashAgent` and `CarConditionFeedbackAgent` — the 2 agents we want to include in our sequence workflow.
+3. The `createCarProcessingWorkflow` method then needs to define the sequence workflow, `CarProcessingWorkflow`, including the `CarWashAgent` and `CarConditionFeedbackAgent` as subagents (the subagent list represents the list of agents that are in the workflow).
 
 ### Modify the `CarManagementService` to Use the Sequence Workflow
 
 In the `CarManagementService`, let's modify the `processCarReturn` method to call the `carProcessingWorkflow` and process its results. 
 
-First, we need to invoke `carProcessingWorkflow.processCarReturn`, the agent method, to cause each of the subagents to be executed in sequence. 
+4. We need to invoke `carProcessingWorkflow.processCarReturn`, the agent method, to cause each of the subagents to be executed in sequence. 
 
-Next, retrieve the `carCondition` value from the `AgenticScope`, and use that value as the new condition for the car.
+5. Retrieve the `carCondition` value from the `AgenticScope`, and use that value as the new condition for the car.
 
-As before, check the results from the car wash agent to decide whether to change the car state.
+6. As before, check the results from the car wash agent to decide whether to change the car state.
 
 ## Try Out the New Workflow
 
