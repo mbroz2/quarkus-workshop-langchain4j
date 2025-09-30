@@ -77,7 +77,7 @@ Create the file in your `multi-agent-system/src/main/java/com/carmanagement/agen
 --8<-- "../../section-2/step-04/multi-agent-system/src/main/java/com/carmanagement/agentic/agents/DispositionFeedbackAgent.java"
 ```
 
-### Create a new `DispositionAgent` (for the client side)
+### Create a new `DispositionAgent` (**for the client side**)
 
 For the disposition agent, in Quarkus runtime 1 we need to create an agent to be used as a type-safe interface for us to invoke the remote A2A agent. This agent will not need to interact with LLMS, so it shouldn't have system message or user message annotations. The parameters we define on the agent method define what will be sent to the remote agent.
 
@@ -195,15 +195,15 @@ Create the file in your `remote-a2a-agent/src/main/java/com/demo` directory.
 
 In the execute method we need to take action on the task:
 
-- We initialize a `TaskUpdater`, which is responsible for making updates to the Task status and recording events (such as Task status updates or additions of artifacts to the task) in the EventQueue.
+1. We initialize a `TaskUpdater`, which is responsible for making updates to the Task status and recording events (such as Task status updates or additions of artifacts to the task) in the EventQueue. 
 
-- If there is no task currently in the `RequestContext` we put the task into the initial submitted state. If the task already exists, we put it into working state.
+2. If there is no task currently in the `RequestContext` we put the task into the initial submitted state. If the task already exists, we put it into working state.
 
-- We extract the message parts from the request context. When an A2A agent has multiple parameters, each parameter gets stored as a separate message part.
+3. We extract the message parts from the request context. When an A2A agent has multiple parameters, each parameter gets stored as a separate message part.
 
-- We invoke our LangChain4j `DispositionAgent` with the same parameters as were provided to the A2A agent.
+4. We invoke our LangChain4j `DispositionAgent` with the same parameters as were provided to the A2A agent.
 
-- We put the agent's response into an artifact in the `Task` and mark the task complete. This will result in the response being made available to the A2A client agent.
+5. We put the agent's response into an artifact in the `Task` and mark the task complete. This will result in the response being made available to the A2A client agent.
 
 Create the file in your `remote-a2a-agent/src/main/java/com/demo` directory.
 
