@@ -39,10 +39,6 @@
             <artifactId>quarkus-arc</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-undertow</artifactId>
-        </dependency>
-        <dependency>
           <groupId>dev.langchain4j</groupId>
           <artifactId>langchain4j-agentic</artifactId>
           <version>1.6.0-beta12</version>
