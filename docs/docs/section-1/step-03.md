@@ -69,6 +69,6 @@ Tell me a story containing 500 words
 
 and you will see the response being displayed as it arrives.
 
-![type:video](../images/streaming.mp4){autoplay=true}
+<!-- ![type:video](../images/streaming.mp4){autoplay=true} -->
 
 Let's now switch to the [next step](./step-04.md)!

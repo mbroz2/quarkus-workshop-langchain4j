@@ -17,7 +17,7 @@ nav:
     - 1-8 Model Context Protocol: 'section-1/step-08.md'
     - 1-9 Guardrails: 'section-1/step-09.md'
     - 1-10 Observability and Fault Tolerance: 'section-1/step-10.md'
-    - 1-11 Serving the model in pure Java with Jlama: 'section-1/step-11.md'
+    # - 1-11 Serving the model in pure Java with Jlama: 'section-1/step-11.md'
   - Section 2 - Agentic AI Workflows:
     - 2-1 Implementing AI Agents: 'section-2/step-01.md'
     - 2-2 Composing simple agent workflows: 'section-2/step-02.md'
