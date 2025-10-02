@@ -9,6 +9,7 @@ mv step-01 multi-agent-system
 mkdir step-01
 mv multi-agent-system step-01
 cd step-01/multi-agent-system
+cp -rf ../../step-03/ ./
 cp ../../step-04/multi-agent-system/pom.xml ./pom.xml
 cp ../../step-04/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
 cp ../../step-04/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java ./src/main/java/com/carmanagement/model/CarStatus.java
