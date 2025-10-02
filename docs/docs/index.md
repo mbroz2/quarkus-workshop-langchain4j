@@ -29,16 +29,15 @@ The workshop is divided into two sections:
 
 Each step builds on the previous one, with the results stored in separate directories (`step-XX`):
 
-- Final solution for Section 1: `section-1/step-11`
+- Final solution for Section 1: `section-1/step-10`
 - Final solution for Section 2: `section-2/step-04`
 
 ---
 
-## How to Work with Steps
+<!-- ## How to Work with Steps
 
 !!! tip
     We recommend starting with the `main` branch, then opening the project from `step-01` in your IDE.  
-    If you prefer, you can make a copy of the directory instead.
 
 !!! note
     To reset to a particular step, either overwrite your working directory with the content of that step,  
@@ -48,7 +47,7 @@ Each step builds on the previous one, with the results stored in separate direct
 
 ![Quarkus LangChain4j Workshop Architecture](images/global-architecture.png)
 
----
+--- -->
 
 ## Let's Get Started!
 
