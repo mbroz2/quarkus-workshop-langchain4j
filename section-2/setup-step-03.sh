@@ -8,6 +8,7 @@ cd ./step-01
 
 # Copy UI and model files from step-03 to step-01
 echo "Copying UI and model files..."
+cp -rf ../step-02/ ./
 cp ../step-03/src/main/resources/static/css/styles.css ./src/main/resources/static/css/styles.css
 cp ../step-03/src/main/resources/static/js/app.js ./src/main/resources/static/js/app.js
 cp ../step-03/src/main/resources/templates/index.html ./src/main/resources/templates/index.html
