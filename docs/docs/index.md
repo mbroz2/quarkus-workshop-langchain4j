@@ -21,7 +21,7 @@ Throughout the workshop, you will create an LLM-powered customer support chatbot
 
 The workshop is divided into two sections:
 
-- **Section 1 – AI-infused application (11 steps):**  
+- **Section 1 – AI-infused application (10 steps):**  
   You’ll progressively build a chatbot, starting with basic LLM integration and adding features such as structured outputs, guardrails, and RAG.
 
 - **Section 2 – Agentic systems (4 steps):**  
