@@ -26,6 +26,25 @@ Acting as one of the Miles of Smiles team members accepting car rental returns, 
 Car has dog hair all over the back seat
 ```
 
+??? note "If the browser doesn't respond"
+    If the UI appears to hang, it may be because you haven't set the `OPENAI_API_KEY` environment variable.  
+    In this case, you will see a message similar to the following in your Quarkus log:
+    ```
+    Caused by: dev.langchain4j.exception.AuthenticationException: {
+        "error": {
+            "message": "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+        }
+    }
+    ```
+    To fix it, stop the runtime (press 'q'), then set the `OPENAI_API_KEY` environment variable and start the runtime again:
+    ```bash
+    export OPENAI_API_KEY=<your-key>
+    ./mvnw quarkus:dev
+    ```
+
 After a few moments the car status will be updated in the fleet status section and the car should no longer appear in the returns section. With the above return comment, the log output would show evidence of a car wash request being made similar to the following:
 
 ```
@@ -123,7 +142,7 @@ When the `carWashAgent` was created it was assigned a tool (the `CarWashTool`). 
 --8<-- "../../section-2/step-01/src/main/java/com/carmanagement/agentic/tools/CarWashTool.java:CarWashTool"
 ```
 
-The `CarWashTool` is a mock tool for requesting the car wash. The `@Tool` annotation is used to identify the methods that should be registered as tool methods, which agents can use.
+The `CarWashTool` is a mock tool for requesting the car wash. The `@Tool` annotation is used to identify the methods that should be registered as tool methods, which agents can use. The description of the tool, as well as the parameters of the tool methods, are provided in LLM requests from the agent to the LLM.
 
 ??? question "Why do we use @Dependent scope for the Tool?"
     When a tool is added to the definition of an agent, LangChain4j introspects the tool object to see which methods have `@Tool` annotations. CDI creates proxies around objects that are defined with certain CDI scopes (such as `@ApplicationScoped` or `@SessionScoped`). The proxy methods do not have the `@Tool` annotations and therefore the agents don't properly recognize the tool methods on those objects. If you need your tools to be defined with other CDI scopes, you can use a `ToolProvider` to add tools (not discussed in this tutorial).

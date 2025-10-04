@@ -144,8 +144,8 @@ Similarly to the `CarWashAgent` and `MaintenanceAgent`, we will have the `CarCon
 
 Update the file in your `src/main/java/com/carmanagement/agentic/agents` directory.
 
-```java hl_lines="15-17 26-27" title="CarConditionFeedbackAgent.java"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java:carConditionFeedbackSnippet"
+```java hl_lines="27-29 38-39" title="CarConditionFeedbackAgent.java"
+--8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java"
 ```
 
 ## Create the maintenance tool and maintenance returns API

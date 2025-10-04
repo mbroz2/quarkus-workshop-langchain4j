@@ -79,7 +79,7 @@ In the `src/main/java/com/carmanagement/agentic/workflow/` directory, create the
 
 We'll need to make a few changes to our `CarManagementService` to define our new agent and workflow.
 
-Complete the steps described below, or simply copy the following code to the file in your `src/main/java/com/carmanagement/service` directory.
+Copy the following code to the file in your `src/main/java/com/carmanagement/service` directory. We'll explain the multiple changes to the file.
 
 ```java hl_lines="43-45 48-59 61-67 83-91 93-100 102-105" title="CarManagementService.java"
 --8<-- "../../section-2/step-02/src/main/java/com/carmanagement/service/CarManagementService.java"
@@ -87,17 +87,17 @@ Complete the steps described below, or simply copy the following code to the fil
 
 ### Define the Sequence Workflow in `CarManagementService`
 
-First, we'll define the sequence workflow in `CarManagementService`.
+Here's how the sequence workflow is defined in `CarManagementService`:
 
-1. Let's modify the `initialize` method to initialize the `CarProcessingWorkflow` when the service is instantiated.
-2. The `createCarProcessingWorkflow` method needs to define the `CarWashAgent` and `CarConditionFeedbackAgent` — the 2 agents we want to include in our sequence workflow.
-3. The `createCarProcessingWorkflow` method then needs to define the sequence workflow, `CarProcessingWorkflow`, including the `CarWashAgent` and `CarConditionFeedbackAgent` as subagents (the subagent list represents the list of agents that are in the workflow).
+1. The `initialize` method initializes the `CarProcessingWorkflow` when the service is instantiated.
+2. The `createCarProcessingWorkflow` method defines the `CarWashAgent` and `CarConditionFeedbackAgent` — the 2 agents included in our sequence workflow.
+3. The `createCarProcessingWorkflow` method also defines the sequence workflow, `CarProcessingWorkflow`, with the `CarWashAgent` and `CarConditionFeedbackAgent` as subagents (the subagent list represents the list of agents that are in the workflow).
 
-4. In the `CarManagementService`, let's modify the `processCarReturn` method to call the `carProcessingWorkflow` and process its results. We need to invoke `carProcessingWorkflow.processCarReturn`, the agent method, to cause each of the subagents to be executed in sequence. 
+4. In the `CarManagementService`, the `processCarReturn` method calls the `carProcessingWorkflow` and processes its results. It invokes `carProcessingWorkflow.processCarReturn`, the agent method, which causes each of the subagents to execute in sequence.
 
-5. Retrieve the `carCondition` value from the `AgenticScope`, and use that value as the new condition for the car.
+5. The code retrieves the `carCondition` value from the `AgenticScope` and uses that value as the new condition for the car.
 
-6. As before, check the results from the car wash agent to decide whether to change the car state.
+6. As shown, the code checks the results from the car wash agent to decide whether to change the car state.
 
 ## Try Out the New Workflow
 
