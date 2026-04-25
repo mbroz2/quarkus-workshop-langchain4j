@@ -174,7 +174,17 @@ Before starting:
 
 The first step in the refactoring is to make the analysis type explicit. Instead of encoding "cleaning", "maintenance", or "disposition" in three separate agent interfaces, we represent that variation with a task model.
 
-Create [`src/main/java/com/carmanagement/model/FeedbackTask.java`](section-2/step-04/src/main/java/com/carmanagement/model/FeedbackTask.java):
+In `src/main/java/com/carmanagement/model`, create `FeedbackTask.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/model/FeedbackTask.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\model\FeedbackTask.java
+    ```
 
 ```java title="FeedbackTask.java" hl_lines="16-30 35-49 55-77"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/model/FeedbackTask.java"
@@ -191,7 +201,7 @@ This design keeps the agent generic and moves the task-specific behavior into da
 
 Now create the single feedback analyzer that can handle any of those tasks.
 
-In [`src/main/java/com/carmanagement/agentic/agents`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents), create [`FeedbackAnalysisAgent.java`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents/FeedbackAnalysisAgent.java):
+In `src/main/java/com/carmanagement/agentic/agents`, create `FeedbackAnalysisAgent.java`:
 
 ```java title="FeedbackAnalysisAgent.java" hl_lines="14 27-30"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/FeedbackAnalysisAgent.java"
@@ -204,7 +214,17 @@ The key detail here is the system message. Instead of hardcoding the instruction
 
 Once the parallel analysis is complete, we want to pass the results around as structured data rather than as a raw list of strings.
 
-Create [`src/main/java/com/carmanagement/model/FeedbackAnalysisResults.java`](section-2/step-04/src/main/java/com/carmanagement/model/FeedbackAnalysisResults.java):
+In `src/main/java/com/carmanagement/model`, create `FeedbackAnalysisResults.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/model/FeedbackAnalysisResults.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\model\FeedbackAnalysisResults.java
+    ```
 
 ```java title="FeedbackAnalysisResults.java"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/model/FeedbackAnalysisResults.java"
@@ -218,7 +238,17 @@ The Miles & Smiles management has decided they feel comfortable using AI to dete
 
 Either way, our task is to implement their idea in the form of a new PricingAgent. We'll add some prompt engineering in the system message to guide the model on how to estimate value based on the brand, its state, and its age. The agent will be invoked by the supervisor when it deems that pricing is needed.
 
-In [`src/main/java/com/carmanagement/agentic/agents`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents), create [`PricingAgent.java`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents/PricingAgent.java):
+In `src/main/java/com/carmanagement/agentic/agents`, create `PricingAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/PricingAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\PricingAgent.java
+    ```
 
 ```java title="PricingAgent.java" hl_lines="16 35-37 39-41 50-53"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/PricingAgent.java"
@@ -230,7 +260,17 @@ Management also feels comfortable letting an AI model decide whether to SCRAP, S
 
 Create an agent that makes disposition decisions based on the pricing outcome from the PricingAgent, as well as the car's age and condition.
 
-In [`src/main/java/com/carmanagement/agentic/agents`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents), create [`DispositionAgent.java`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java):
+In `src/main/java/com/carmanagement/agentic/agents`, create `DispositionAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\DispositionAgent.java
+    ```
 
 ```java title="DispositionAgent.java" hl_lines="16 22 29 41 43"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
@@ -242,7 +282,17 @@ Now create the **supervisor agent** that orchestrates everything.
 
 What matters most here is making the prompt as clear as possible about the workflow and the agents available to it. The more explicit you are, the better the supervisor can reason about which action agents to invoke.
 
-In [`src/main/java/com/carmanagement/agentic/agents`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents), create [`FleetSupervisorAgent.java`](section-2/step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java):
+In `src/main/java/com/carmanagement/agentic/agents`, create `FleetSupervisorAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\FleetSupervisorAgent.java
+    ```
 
 ```java title="FleetSupervisorAgent.java" hl_lines="17-24 35 53-64 93-117"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
@@ -319,7 +369,17 @@ That second model is a much better fit when the only thing that varies is config
 
 Now create the workflow that runs the unified agent once for each task.
 
-Create [`src/main/java/com/carmanagement/agentic/workflow/FeedbackAnalysisWorkflow.java`](section-2/step-04/src/main/java/com/carmanagement/agentic/workflow/FeedbackAnalysisWorkflow.java):
+In `src/main/java/com/carmanagement/agentic/workflow`, create `FeedbackAnalysisWorkflow.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/workflow/FeedbackAnalysisWorkflow.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\workflow\FeedbackAnalysisWorkflow.java
+    ```
 
 ```java title="FeedbackAnalysisWorkflow.java" hl_lines="23-27 29-38 45-51"
 --8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/workflow/FeedbackAnalysisWorkflow.java"

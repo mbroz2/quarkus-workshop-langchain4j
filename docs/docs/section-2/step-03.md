@@ -454,7 +454,17 @@ while the `CleaningFeedbackAgent` is specialized in looking for clues in the str
 
 #### MaintenanceFeedbackAgent
 
-Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java`:
+In `src/main/java/com/carmanagement/agentic/agents`, create `MaintenanceFeedbackAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\MaintenanceFeedbackAgent.java
+    ```
 
 ```java title="MaintenanceFeedbackAgent.java" hl_lines="10 17-18 29-31 34"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java"
@@ -469,7 +479,17 @@ Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.
 
 #### CleaningFeedbackAgent
 
-Create `src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java`:
+In `src/main/java/com/carmanagement/agentic/agents`, create `CleaningFeedbackAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\CleaningFeedbackAgent.java
+    ```
 
 ```java title="CleaningFeedbackAgent.java" hl_lines="16-17 28-30 33"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java"
@@ -486,7 +506,17 @@ Create `src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.jav
 Now, we'll create a **parallel** workflow that runs both feedback agents simultaneously.
 This is where the `@ParallelAgent` annotation comes into play.
 
-Create `src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java`:
+In `src/main/java/com/carmanagement/agentic/workflow`, create `FeedbackWorkflow.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\workflow\FeedbackWorkflow.java
+    ```
 
 ```java title="FeedbackWorkflow.java" hl_lines="15-16"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java"
@@ -504,7 +534,17 @@ These agents will examine the analysis results and determine what should happen 
 
 #### MaintenanceAgent
 
-Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java`:
+In `src/main/java/com/carmanagement/agentic/agents`, create `MaintenanceAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\MaintenanceAgent.java
+    ```
 
 ```java title="MaintenanceAgent.java" hl_lines="30"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java"
@@ -532,7 +572,17 @@ Update `src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java`:
 The Car Assignment workflow is the conditional workflow which will active the appropriate
 service agent path based on the analysis results. Notice the same analysisResult from the previous 2 agents we created.
 
-Create `src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java`:
+In `src/main/java/com/carmanagement/agentic/workflow`, create `CarAssignmentWorkflow.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\workflow\CarAssignmentWorkflow.java
+    ```
 
 ```java title="CarAssignmentWorkflow.java" hl_lines="16-17 27 32"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java"
@@ -557,7 +607,17 @@ Update `src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent
 
 #### Create CarAssignment Model
 
-Create `src/main/java/com/carmanagement/model/CarAssignment.java`:
+In `src/main/java/com/carmanagement/model`, create `CarAssignment.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/model/CarAssignment.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\model\CarAssignment.java
+    ```
 
 ```java title="CarAssignment.java"
 --8<-- "../../section-2/step-03/src/main/java/com/carmanagement/model/CarAssignment.java"
